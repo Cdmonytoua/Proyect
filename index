@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagen/png" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
+    <title>Inicio</title>
+</head>
+<body>
+    <br>
+    <header>
+        <div id="header">
+            <link id="icon" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
+            <ul class="nav">
+                <li><a href="index.html">Inicio</a></li>
+                   
+                <li><a href="Carreras.php">Libros</a></li>
+                
+                <li><a href="Profesores.php">Categorias</a></li>
+                
+                <li><a href="Administradores.php">Autores</a></li>
+
+                <li><a href="Administradores.php">Editoriales</a></li>
+
+                <li><a href="Administradores.php">Clientes</a></li>
+
+                <li><a href="Administradores.php">Administadores</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+    <br><br><br>
+    <hr size="1"> 
+    <table class="Tprincipal" align="center"> 
+        <tr>
+            <td rowspan="2">
+                <div class="slider">
+                    <ul>
+                        <li><img src="https://www.porrua.mx/images/banners/home/4-PROMO-DiaNino.jpg" alt=" "></li>
+                        <li><img src="https://www.porrua.mx/images/banners/home/7-PROMO-DiaNino.jpg" alt=""></li>
+                        <li><img src="https://www.porrua.mx/images/banners/home/PROMOCIONES-aqui.jpg" alt=""></li>
+                        <li><img src="https://www.porrua.mx/images/banners/home/RetoLector2020.jpg" alt=""></li>
+                    </ul>
+                </div>
+            </td>
+            <td><img src="https://www.porrua.mx/images/banners/home/CornerShop-485X215.jpg"></td>
+        </tr>
+        <tr>
+            <td><img src="https://www.porrua.mx/images/banners/home/Banner485x215-FacebookLIVE.jpg"></td>
+        </tr>
+    </table>
+    
+    <br>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Libreria L &copy; 2020</p>
+
+            <div class="sociales">
+                <a href="https://www.facebook.com"><img src="https://cdn.icon-icons.com/icons2/693/PNG/512/Facebook_Rounded_Solid_icon-icons.com_61562.png" alt="enlace-facebook" width="35pt" height="35pt"></a>
+                <a href="https://www.twitter.com"><img src="https://www.stickpng.com/assets/images/5a2fe479cc45e43754640849.png" alt="enlace-twitter" width="32pt" height="32pt"></a>
+                <a href="https://www.instagram.com"><img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt="enlace-instagram" width="30pt" height="30pt"></a>
+                <a href="https://www.youtube.com"><img src="https://image.flaticon.com/icons/png/512/48/48968.png" alt="enlace-youtube" width="35pt" height="35pt"></a>
+
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+<style>
+
+<!--Galeria-->
+
+img{
+    width: 680px;
+}
+
+.slider{
+    width: 680px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.slider ul{
+    list-style: none;
+    width: 2720px;
+    display: flex;
+
+    animation: x 20s infinite alternate;
+}
+
+@keyframes x {
+    0%{margin-left: 0px;}
+    20%{margin-left: 0px;}
+
+    25%{margin-left: -680px;}
+    45%{margin-left: -680px;}
+
+    50%{margin-left: -1360px;}
+    70%{margin-left: -1360px;}
+
+    75%{margin-left: -2040px;}
+    100%{margin-left: -2040px;}
+
+    
+}
+
+.Tprincipal{
+    text-align: center;
+    align-items: center;
+}
+
+#icon{
+    height: 50px;
+    float: left;
+}
+
+#header{
+		margin: auto;
+		width: 50%;
+		font-family:Arial;
+	}
+
+	ul,ol{
+		list-style: none;
+	}
+
+	.nav li a{
+        float: right;
+		background-color: #d8c602cb;
+		color: #000;
+		text-decoration: none;
+		padding: 10px 15px;
+		display: block;
+        color: floralwhite;
+	}
+
+/*Pasar mouse*/
+	.nav li a:hover{
+		background-color: #597004;
+	}
+
+/* todos los li que esten directos en nav */
+	.nav > li{
+		float: left;
+	}
+
+	.nav li ul{
+		display: none;
+		position: absolute;
+		min-width: 140px;
+	}
+
+	.nav li:hover > ul {
+		display: block;
+    }
+    
+    //otra cosa 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: helvetica;
+
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;   
+}
+
+.copy{
+    font-size: 12pt;
+}
+
+footer .contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sociales{
+    
+    text-align: center;
+    width: 100%;
+}
+
+.sociales img{
+    margin: 0px 5px;
+}
+
+@media (min-width:768px){
+    footer .contenedor{
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .sociales{
+        width: auto;
+    }
+}
+
+@media (min-width:1024px){
+    .contenedor{
+        width: 1000px;
+    }
+}
+</style>
