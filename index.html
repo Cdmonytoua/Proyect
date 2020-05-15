@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="imagen/png" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
+    <link rel="stylesheet" href="style.css">
     <title>Inicio</title>
+
 </head>
 <body>
     <br>
@@ -14,21 +16,21 @@
             <ul class="nav">
                 <li><a href="index.html">Inicio</a></li>
                    
-                <li><a href="Carreras.php">Libros</a></li>
+                <li><a href="#">Libros</a></li>
                 
-                <li><a href="Profesores.php">Categorias</a></li>
+                <li><a href="#">Categorias</a></li>
                 
-                <li><a href="Administradores.php">Autores</a></li>
+                <li><a href="#">Autores</a></li>
 
-                <li><a href="Administradores.php">Editoriales</a></li>
-
-                <li><a href="Administradores.php">Clientes</a></li>
-
-                <li><a href="Administradores.php">Administadores</a></li>
+                <li><a href="#">Editoriales</a></li>
 
             </ul>
         </div>
     </header>
+    <form class="searchform">
+        <input class="searchfield" type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
+        <input class="searchbutton" type="button" value="Ir" />
+    </form>
 
     <br><br><br>
     <hr size="1"> 
@@ -68,147 +70,3 @@
     
 </body>
 </html>
-
-<style>
-
-<!--Galeria-->
-
-img{
-    width: 680px;
-}
-
-.slider{
-    width: 680px;
-    margin: 30px auto;
-    overflow: hidden;
-}
-
-.slider ul{
-    list-style: none;
-    width: 2720px;
-    display: flex;
-
-    animation: x 20s infinite alternate;
-}
-
-@keyframes x {
-    0%{margin-left: 0px;}
-    20%{margin-left: 0px;}
-
-    25%{margin-left: -680px;}
-    45%{margin-left: -680px;}
-
-    50%{margin-left: -1360px;}
-    70%{margin-left: -1360px;}
-
-    75%{margin-left: -2040px;}
-    100%{margin-left: -2040px;}
-
-    
-}
-
-.Tprincipal{
-    text-align: center;
-    align-items: center;
-}
-
-#icon{
-    height: 50px;
-    float: left;
-}
-
-#header{
-		margin: auto;
-		width: 50%;
-		font-family:Arial;
-	}
-
-	ul,ol{
-		list-style: none;
-	}
-
-	.nav li a{
-        float: right;
-		background-color: #d8c602cb;
-		color: #000;
-		text-decoration: none;
-		padding: 10px 15px;
-		display: block;
-        color: floralwhite;
-	}
-
-/*Pasar mouse*/
-	.nav li a:hover{
-		background-color: #597004;
-	}
-
-/* todos los li que esten directos en nav */
-	.nav > li{
-		float: left;
-	}
-
-	.nav li ul{
-		display: none;
-		position: absolute;
-		min-width: 140px;
-	}
-
-	.nav li:hover > ul {
-		display: block;
-    }
-    
-    //otra cosa 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: helvetica;
-
-}
-
-.contenedor{
-    width: 98%;
-    margin: auto;   
-}
-
-.copy{
-    font-size: 12pt;
-}
-
-footer .contenedor{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.sociales{
-    
-    text-align: center;
-    width: 100%;
-}
-
-.sociales img{
-    margin: 0px 5px;
-}
-
-@media (min-width:768px){
-    footer .contenedor{
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .sociales{
-        width: auto;
-    }
-}
-
-@media (min-width:1024px){
-    .contenedor{
-        width: 1000px;
-    }
-}
-</style>
