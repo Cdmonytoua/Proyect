@@ -58,6 +58,7 @@
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e9e9e', endColorstr='#454545'); /* ie7 */
 	-ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e9e9e', endColorstr='#454545'); /* ie8 */
 }
+
 <!--Galeria-->
 
 img{
@@ -96,13 +97,45 @@ img{
 
 .Tprincipal{
     text-align: center;
-    align-items: center;
+	align-items: center;
+	margin: auto;
 }
 
 #icon{
     height: 50px;
     float: left;
 }
+
+<!--Contenedorlibros-->
+
+#cl{
+	text-align: center;
+}
+
+.contlibros{
+	margin: auto;
+	text-align: center;
+}
+
+.contlibros img{
+	padding: 30px;
+}
+
+fieldset {
+	background-color: #eeeeee;
+}
+  
+legend {
+	background-color: gray;
+	color: white;
+	padding: 5px 10px;
+	float: center;
+}
+  
+input {
+	margin: 5px;
+}
+
 
 #header{
 		margin: auto;
