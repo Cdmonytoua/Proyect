@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagen/png" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
+    <title>Informacion</title>
+
+</head>
+<body>
+    <br>
+    <header>
+        <h2>Detalle</h2><br>
+    </header>
+   
+    <hr size="1"> 
+    <br><br>
+    <table class="Tprincipal"> 
+        <tr>
+            <td rowspan="6">
+                    <ul>
+                        <li><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073185509.jpg" alt=" "></li>
+                    </ul>
+            </td>
+            <td>TITULO</td>
+        </tr>
+        <tr>
+            <td>CATEGORIA</td>
+        </tr>
+        <tr>
+            <td>AUTOR</td>
+        </tr>
+        <tr>
+            <td>EDITORIAL</td>
+        </tr>
+        <tr>
+            <td>AÑO DE PUBLICACION</td>
+        </tr>
+        <tr>
+            <td>PRECIO</td>
+        </tr>
+    </table>
+
+    <br><br><br>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Libreria L &copy; 2020</p>
+
+            <div class="sociales">
+                <a href="https://www.facebook.com"><img src="https://cdn.icon-icons.com/icons2/693/PNG/512/Facebook_Rounded_Solid_icon-icons.com_61562.png" alt="enlace-facebook" width="35pt" height="35pt"></a>
+                <a href="https://www.twitter.com"><img src="https://image.flaticon.com/icons/png/512/23/23681.png" alt="enlace-twitter" width="30pt" height="30pt"></a>
+                <a href="https://www.instagram.com"><img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt="enlace-instagram" width="30pt" height="30pt"></a>
+                <a href="https://www.youtube.com"><img src="https://image.flaticon.com/icons/png/512/48/48968.png" alt="enlace-youtube" width="35pt" height="35pt"></a>
+
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+<style>
+
+li{
+    list-style: none;
+}
+
+h2{
+    text-align: center;
+}
+
+.Tprincipal{
+    text-align: center;
+	align-items: center;
+	margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: helvetica;
+
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;   
+}
+
+.copy{
+    font-size: 12pt;
+}
+
+footer .contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sociales{
+    
+    text-align: center;
+    width: 100%;
+}
+
+.sociales img{
+    margin: 0px 5px;
+}
+
+@media (min-width:768px){
+    footer .contenedor{
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .sociales{
+        width: auto;
+    }
+}
+
+@media (min-width:1024px){
+    .contenedor{
+        width: 1000px;
+    }
+}
+</style>
