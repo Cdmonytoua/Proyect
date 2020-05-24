@@ -1,0 +1,41 @@
+<!--Galeria-->
+
+img{
+    width: 680px;
+}
+
+.slider{
+    width: 680px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.slider ul{
+    list-style: none;
+    width: 2720px;
+    display: flex;
+
+    animation: x 20s infinite alternate;
+}
+
+@keyframes x {
+    0%{margin-left: 0px;}
+    20%{margin-left: 0px;}
+
+    25%{margin-left: -680px;}
+    45%{margin-left: -680px;}
+
+    50%{margin-left: -1360px;}
+    70%{margin-left: -1360px;}
+
+    75%{margin-left: -2040px;}
+    100%{margin-left: -2040px;}
+
+    
+}
+
+.Tprincipal{
+    text-align: center;
+	align-items: center;
+	margin: auto;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple login</title>
+    <link rel="stylesheet" href="/css/main.css">
+    {{#if style}}
+    <link rel="stylesheet" href="/css/{{style}}">
+    {{/if}}
+</head>
+<body>
+    <br>
+    <header>
+            <div id="header">
+                <link id="icon" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
+                <ul class="nav">
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/">Inicio</a></li>
+                    
+                    <li><a href="/categorias">Libros</a></li>
+                    
+                    <li><a href="#">Categorias</a></li>
+                    
+                    <li><a href="#">Autores</a></li>
+
+                    <li><a href="#">Editoriales</a></li>
+
+                </ul>
+            </div>
+        </header>
+        <form class="searchform">
+            <input class="searchfield" type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
+            <input class="searchbutton" type="button" value="Ir" />
+        </form>
+    
+    {{{ body }}}
+    
+    
+    <br><br>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Libreria L &copy; 2020</p>
+
+            <div class="sociales">
+                <a href="https://www.facebook.com"><img src="https://cdn.icon-icons.com/icons2/693/PNG/512/Facebook_Rounded_Solid_icon-icons.com_61562.png" alt="enlace-facebook" width="35pt" height="35pt"></a>
+                <a href="https://www.twitter.com"><img src="https://image.flaticon.com/icons/png/512/23/23681.png" alt="enlace-twitter" width="30pt" height="30pt"></a>
+                <a href="https://www.instagram.com"><img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt="enlace-instagram" width="30pt" height="30pt"></a>
+                <a href="https://www.youtube.com"><img src="https://image.flaticon.com/icons/png/512/48/48968.png" alt="enlace-youtube" width="35pt" height="35pt"></a>
+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
