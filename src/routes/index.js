@@ -11,15 +11,15 @@ router.get("/login", async (req, res) => {
         style: "login.css"
     })
 });
+
 router.get("/categorias", async (req, res) => {
     const categorias = await pool.query("SELECT * FROM Categorias");
-
-    res.render("categorias", { style: "libros_por_categoria.css",
-    categorias });
+    
+    res.render("categorias", { categorias });
 });
 router.get("/categorias/:id", async (req, res) => {
     const { id } = req.params;
     const libros = await pool.query('SELECT Nombre FROM Libros WHERE Categoria = ?', [id]);
-    res.render("libros_por_categoria", { libros });
+    res.render("libros_por_categoria", { style: "libros_por_categoria.css", libros });
 });
 module.exports = router;
