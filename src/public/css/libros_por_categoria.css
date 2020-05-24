@@ -12,8 +12,14 @@
     border: 2px solid #e7e7e7;
     border-radius: 4px;
     padding: .5rem;
+    width: 95%;
+    margin: auto;
+    text-align: center;
      
 }
 .container {
     padding: 2px 75px;
+    width: 95%;
+    margin: auto;
+    text-align: center;
 }
