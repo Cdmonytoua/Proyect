@@ -10,70 +10,78 @@
 </head>
 <body>
     <br>
-    <header>
-        <div id="header">
-            <link id="icon" href="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg">
-            <ul class="nav">
-                <li><a href="index.html">Iniciar sesión</a></li>
-                <li><a href="index.html">Inicio</a></li>
-                   
-                <li><a href="#">Libros</a></li>
-                
-                <li><a href="#">Categorias</a></li>
-                
-                <li><a href="#">Autores</a></li>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <a href="#" class="logo"><img src="https://image.freepik.com/foto-gratis/concepto-fondo-letra-l-flotando_23-2148185100.jpg"></a>
 
-                <li><a href="#">Editoriales</a></li>
-
+        <nav class="navegation">
+            <ul>
+                <li><a href="#"> Inicio </a></li>
+                <li><a href="#"> Libros </a></li>
+                <li><a href="#"> Categorias </a></li>
+                <li><a href="#"> Autores </a></li>
+                <li><a href="#"> Editoriales </a><li>
+                <li><a href="#"> Mi cuenta </a><li>
             </ul>
+        </nav>    
+    
+        <form class="searchform">
+            <input class="searchfield" type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
+            <input class="searchbutton" type="button" value="Ir" />
+        </form>
+
         </div>
     </header>
-    <form class="searchform">
-        <input class="searchfield" type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
-        <input class="searchbutton" type="button" value="Ir" />
-    </form>
 
     <br><br><br>
-    <hr size="1"> 
-    <table class="Tprincipal"> 
-        <tr>
-            <td rowspan="2">
-                <div class="slider">
-                    <ul>
-                        <li><img src="https://www.porrua.mx/images/banners/home/4-PROMO-DiaNino.jpg" alt=" "></li>
-                        <li><img src="https://www.porrua.mx/images/banners/home/7-PROMO-DiaNino.jpg" alt=""></li>
-                        <li><img src="https://www.porrua.mx/images/banners/home/PROMOCIONES-aqui.jpg" alt=""></li>
-                        <li><img src="https://www.porrua.mx/images/banners/home/RetoLector2020.jpg" alt=""></li>
-                    </ul>
-                </div>
-            </td>
-            <td><img src="https://www.porrua.mx/images/banners/home/CornerShop-485X215.jpg"></td>
-        </tr>
-        <tr>
-            <td><img src="https://www.porrua.mx/images/banners/home/Banner485x215-FacebookLIVE.jpg"></td>
-        </tr>
-    </table>
-    
-    <fieldset>
-        <legend> Libros variados: </legend>
-        <div id="cl">
-            <table class="contlibros">
-                <tr>
-                <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073190305.jpg"></td>
-                <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073189415.jpg"></td>
-                <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073156035.jpg"></td>
-                <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786070912214.jpg"></td>
-                </tr>
-                <tr>
-                <td>$200</td>
-                <td>$gbub</td>
-                <td>$Celda 6</td>
-                <td>$celda 7</td>
-                </tr>
-            </table>
-     </div>
-    </fieldset>
 
+    <!--Ventana flotante-->
+    
+    <!--Ventana flotante-->
+        
+    <hr size="1"> 
+    <main class="main"> 
+
+        <table class="Tprincipal"> 
+            <tr>
+                <td rowspan="2">
+                    <div class="slider">
+                        <ul>
+                            <li><img src="https://www.porrua.mx/images/banners/home/4-PROMO-DiaNino.jpg" alt=" "></li>
+                            <li><img src="https://www.porrua.mx/images/banners/home/7-PROMO-DiaNino.jpg" alt=""></li>
+                            <li><img src="https://www.porrua.mx/images/banners/home/PROMOCIONES-aqui.jpg" alt=""></li>
+                            <li><img src="https://www.porrua.mx/images/banners/home/RetoLector2020.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </td>
+                <td><img src="https://www.porrua.mx/images/banners/home/CornerShop-485X215.jpg"></td>
+            </tr>
+            <tr>
+                <td><img src="https://www.porrua.mx/images/banners/home/Banner485x215-FacebookLIVE.jpg"></td>
+            </tr>
+        </table>
+        
+        <fieldset>
+            <legend> Libros variados: </legend>
+            <div id="cl">
+                <table class="contlibros">
+                    <tr>
+                    <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073190305.jpg"></td>
+                    <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073189415.jpg"></td>
+                    <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073156035.jpg"></td>
+                    <td><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786070912214.jpg"></td>
+                    </tr>
+                    <tr>
+                    <td>$200</td>
+                    <td>$gbub</td>
+                    <td>$Celda 6</td>
+                    <td>$celda 7</td>
+                    </tr>
+                </table>
+        </div>
+        </fieldset>
+    </main>
+    
     <br><br>
     <footer>
         <div class="contenedor">
