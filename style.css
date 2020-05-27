@@ -101,11 +101,6 @@ img{
 	margin: auto;
 }
 
-#icon{
-    height: 50px;
-    float: left;
-}
-
 <!--Contenedorlibros-->
 
 #cl{
@@ -136,48 +131,62 @@ input {
 	margin: 5px;
 }
 
+<!--Cambio-->
 
-#header{
-		margin: auto;
-		width: 50%;
-		font-family:Arial;
-	}
+header{
+	padding: 2rem 0;
+	background: rgb(201, 201, 241);
+	position: fixed;
+	left: 0;
+	top: 0;
+}
 
-	ul,ol{
-		list-style: none;
-	}
+.header{
+	padding: 2rem 0;
+	background: #eeeeee;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+}
 
-	.nav li a{
-        float: right;
-		background-color: #212529;
-		color: #000;
-		text-decoration: none;
-		padding: 10px 15px;
-		display: block;
-        color: floralwhite;
-	}
+.header a{
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+}
 
-/*Pasar mouse*/
-	.nav li a:hover{
-		background-color: #2046AC;
-	}
+.logo-nav-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
-/* todos los li que esten directos en nav */
-	.nav > li{
-		float: left;
-	}
+.header img{
+	width: 30px;
+}
 
-	.nav li ul{
-		display: none;
-		position: absolute;
-		min-width: 140px;
-	}
+.navegation ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
-	.nav li:hover > ul {
-		display: block;
-    }
-    
+.navegation ul li{
+	display: inline-block;
+}
 
+.navegation ul li a{
+	display: block;
+	padding: 0.5rem 1rem;
+	transition: all 0.4s linear;
+	border-radius: 5px;
+}
+
+.navegation ul li a:hover{
+	background: rgb(255, 251, 2);
+}
+
+<!--Fin-->
 
 * {
     margin: 0;
@@ -185,10 +194,16 @@ input {
     box-sizing: border-box;
 }
 
+.main{
+	padding: 2rem;
+}
+
 body{
     font-family: helvetica;
-
 }
+
+
+<!--footer-->
 
 .contenedor{
     width: 98%;
