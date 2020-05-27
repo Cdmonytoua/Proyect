@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
 
 router.get("/categorias", async (req, res) => {
     const categorias = await pool.query("SELECT * FROM Categorias");
-    
     res.render("categorias", { categorias });
 });
 router.get("/categorias/:id", async (req, res) => {

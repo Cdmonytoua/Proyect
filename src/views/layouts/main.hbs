@@ -16,14 +16,15 @@
         <div id="content-wrap">
             <!-- all other page content -->
             <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
+                <form action="/login" class="form-container" method="POST">
                     <h1>Inicia sesión</h1>
                     <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Nombre de usuario" name="email" required>
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <input type="text" placeholder="Nombre de usuario" name="username" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit" class="btn">Iniciar sesión</button>
+                    <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
                 </form>
             </div>
             <div class="topnav">
@@ -79,5 +80,4 @@
         }
     </script>
 </body>
-
 </html>
