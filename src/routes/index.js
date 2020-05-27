@@ -2,14 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 router.get("/", (req, res) => {
-    res.render("inicio",{
-        style: "inicio.css"
-    });
-});
-router.get("/login", async (req, res) => {
-    res.render("login",{
-        style: "login.css"
-    })
+    res.render("inicio",{style: "inicio.css"});
 });
 
 router.get("/categorias", async (req, res) => {
@@ -22,4 +15,5 @@ router.get("/categorias/:id", async (req, res) => {
     const libros = await pool.query('SELECT Nombre FROM Libros WHERE Categoria = ?', [id]);
     res.render("libros_por_categoria", { style: "libros_por_categoria.css", libros });
 });
+
 module.exports = router;
