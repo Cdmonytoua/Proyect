@@ -9,7 +9,7 @@ router.get("/registrar", helper.isnotLogged, (req, res) => {
 router.get("/micuenta", helper.isLogged, (req, res) => {
     res.render("micuenta");
 });
-router.get("/salir", (req, res) => {
+router.get("/salir", helper.isLogged, (req, res) => {
     req.logOut();
     res.redirect('back');
 });
