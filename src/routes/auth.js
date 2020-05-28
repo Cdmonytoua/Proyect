@@ -4,24 +4,18 @@ const pool = require('../db');
 const passport = require('passport');
 
 router.get("/registrar", (req, res) => {
-    res.render("registrar", {style: "login.css"});
+    res.render("registrar", {style: "registrar.css"});
 });
 router.post("/registrar", passport.authenticate('local.registrar', {
     successRedirect: '/',
     failureRedirect: '/registrar',
     failureFlash: true
 }));
-router.post("/login", async (req, res) => {
-    const { username, password } = req.body;
-    await pool.query('SELECt * FROM Clientes WHERE Username = ? and Password = ?', [username, password], (err, results, fields) => {
-        console.log(username);
-        console.log(password);
-        if(results.length > 0){
-            req.flash('islogged', username);
-            res.redirect('/');
-        }else{
-            res.redirect("/");      
-        }
-    })
+router.post("/login", (req, res, next) => {
+    passport.authenticate('local.iniciar',{
+        successRedirect: '/',
+        failureRedirect: '/',
+        failureFlash: true
+    })(req, res, next);
 });
 module.exports = router;
