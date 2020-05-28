@@ -9,14 +9,14 @@ passport.use('local.iniciar', new strategy({
     passReqToCallback: true
 }, async (req, Username, Password, done) => {
     const { username, password } = req.body;
-    const results = await pool.query('SELECt * FROM Clientes WHERE Username = ?', [username]);
+    const results = await pool.query('SELECT * FROM Clientes WHERE Username = ?', [username]);
     if(results.length > 0){
         const user = results[0];
         const flag = await helper.matchPassword(password, user.Password);
         if(flag){
             done(null, user, req.flash('exito', 'Bienvenido'));
         }else done(null, false, req.flash('error', "Contraseña incorrecta"));
-    }else done(null, false, req.flash('error', 'No existe el nombre de usuario'));
+    }else return done(null, false, req.flash('error', 'No existe el nombre de usuario'));
 }));
 
 passport.use('local.registrar', new strategy({
@@ -49,6 +49,6 @@ passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 passport.deserializeUser(async (id, done) => {
-    const user = await pool.query("SELECT * FROM Clientes WHERE Id_Cliente = ?", [id]);
+    const user = await pool.query("SELECT * FROM Clientes WHERE id = ?", [id]);
     done(null, user[0]);
 });

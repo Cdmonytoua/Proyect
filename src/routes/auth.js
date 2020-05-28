@@ -2,9 +2,16 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const passport = require('passport');
-
-router.get("/registrar", (req, res) => {
+const helper = require("../lib/helpers");
+router.get("/registrar", helper.isnotLogged, (req, res) => {
     res.render("registrar", {style: "registrar.css"});
+});
+router.get("/micuenta", helper.isLogged, (req, res) => {
+    res.render("micuenta");
+});
+router.get("/salir", (req, res) => {
+    req.logOut();
+    res.redirect('back');
 });
 router.post("/registrar", passport.authenticate('local.registrar', {
     successRedirect: '/',
@@ -13,8 +20,8 @@ router.post("/registrar", passport.authenticate('local.registrar', {
 }));
 router.post("/login", (req, res, next) => {
     passport.authenticate('local.iniciar',{
-        successRedirect: '/',
-        failureRedirect: '/',
+        successRedirect: 'back',
+        failureRedirect: 'back',
         failureFlash: true
     })(req, res, next);
 });

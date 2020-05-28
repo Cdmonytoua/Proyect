@@ -7,10 +7,22 @@ helpers.encryptPassword = async (password) => {
 };
 helpers.matchPassword = async (password, encryptedpassword) => {
     try {
-        await bcrypt.compare(password, encryptedpassword);
+        return await bcrypt.compare(password, encryptedpassword);
         
     } catch (error) {
         console.log(error);
     }
-}
+};
+helpers.isLogged = (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    return res.redirect('/');
+};
+helpers.isnotLogged = (req, res, next) => {
+    if(!req.isAuthenticated()){
+        return next();
+    }
+    return res.redirect('/');
+};
 module.exports = helpers;

@@ -35,6 +35,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
     app.locals.islogged = req.flash('islogged')
     app.locals.error = req.flash('error')
+    app.locals.user = req.user;
     next();
 });
 app.use(require('./routes'));

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,22 +13,33 @@
     <link rel="stylesheet" href="/css/{{style}}">
     {{/if}}
 </head>
+
 <body>
     <div id="page-container">
         <div id="content-wrap">
             <!-- all other page content -->
+            {{#if user}}
             <div class="form-popup" id="myForm">
-                <form action="/login" class="form-container" method="POST">
-                    <h1>Inicia sesión</h1>
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Nombre de usuario" name="username" required>
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <button type="submit" class="btn">Iniciar sesión</button>
-                    <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
+                <form class="form-container">
+                    <button type="button" class="btn" onclick="window.location='/micuenta'">Mi cuenta</button>
+                    <button type="button" class="btn" onclick="window.location='/salir'">Cerrar sessión</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
                 </form>
             </div>
+            {{else}}
+                <div class="form-popup" id="myForm">
+                    <form action="/login" class="form-container" method="POST">
+                        <h1>Inicia sesión</h1>
+                        <label for="username"><b>Username</b></label>
+                        <input type="text" placeholder="Nombre de usuario" name="username" required>
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" required>
+                        <button type="submit" class="btn">Iniciar sesión</button>
+                        <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
+                    </form>
+                </div>
+            {{/if}}
             <div class="topnav">
                 <a href="/">Inicio</a>
                 <a href="#libros">Libros</a>
@@ -37,12 +49,18 @@
                 <div class="search-container">
                     <form action="/action_page.php">
                         <input type="text" placeholder="Search.." name="search">
-                        <button type="button" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"></i></button>
+                        {{#if user}}
+                        <button type="button" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"> Hola,
+                                {{user.Username}}</i></button>
+                        {{else}}
+                        <button type="button" onclick="openForm()"><i class="fa fa-user"
+                                aria-hidden="true"></i></button>
+                        {{/if}}
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </div>
-            {{>error}} 
+            {{>error}}
             {{{ body }}}
         </div>
         <footer id="footer">
@@ -82,4 +100,5 @@
         }
     </script>
 </body>
+
 </html>

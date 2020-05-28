@@ -3,11 +3,11 @@
         <h2><span>Registrarse</span></h2>
     </div>
     <form class="form__reg" action="/registrar" method="POST">
-        <input class="input" name="Username" type="text" placeholder="&#128100;  Nombre de usuario" required autofocus>
+        <input pattern="\S+" title="El nombre de usuario no puede contener espacios" class="input" name="Username" type="text" placeholder="&#128100;  Nombre de usuario" required autofocus>
         <input class="input" name="Password" type="password" placeholder="&#128100;  Contraseña" required>
-        <input class="input" name="Nombre" type="text" placeholder="&#128100;  Nombre" required>
-        <input class="input" name="ApellidoP" type="text" placeholder="&#128100;  Apellido paterno" required>
-        <input class="input" name="ApellidoM" type="text" placeholder="&#128100;  Apellido materno" required>
+        <input pattern="\D+" title="Este campo no puede contener números" class="input" name="Nombre" type="text" placeholder="&#128100;  Nombre" required>
+        <input pattern="\D+" title="Este campo no puede contener números" class="input" name="ApellidoP" type="text" placeholder="&#128100;  Apellido paterno" required>
+        <input pattern="\D+" title="Este campo no puede contener números" class="input" name="ApellidoM" type="text" placeholder="&#128100;  Apellido materno" required>
         <input class="input" name="Correo" type="email" placeholder="&#9993;  Correo" required>
         <input class="input" name="Direccion" type="text" placeholder="&#8962;  Dirección" required>
         <input class="input" name="CodigoPostal" type="number" placeholder="&#128100;  Código postal" required>
