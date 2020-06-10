@@ -14,7 +14,11 @@ passport.use('local.iniciar', new strategy({
         const user = results[0];
         const flag = await helper.matchPassword(password, user.Password);
         if(flag){
-            done(null, user, req.flash('exito', 'Bienvenido'));
+            if(username == 'admin'){
+                done(null, user, req.flash('admin', 'admin'));
+                console.log(username);
+            }
+            else done(null, user);
         }else done(null, false, req.flash('error', "Contraseña incorrecta"));
     }else return done(null, false, req.flash('error', 'No existe el nombre de usuario'));
 }));

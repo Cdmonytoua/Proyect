@@ -33,8 +33,8 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
-    app.locals.islogged = req.flash('islogged')
-    app.locals.error = req.flash('error')
+    app.locals.error = req.flash('error');
+    app.locals.admin = req.flash('admin');
     app.locals.user = req.user;
     next();
 });
