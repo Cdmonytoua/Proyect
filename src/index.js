@@ -8,6 +8,7 @@ const session = require('express-session');
 const mysqlsession = require('express-mysql-session');
 const passport = require('passport');
 const { database } = require('./keys');
+
 require('./lib/passport');
 
 app.set('port', process.env.PORT || 4000);
@@ -25,8 +26,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(session({
     secret: 'mysession',
-    resave: 'false',
-    saveUninitialized: 'false',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
     store: new mysqlsession(database)
 }));
 app.use(flash());
@@ -34,7 +36,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
     app.locals.error = req.flash('error');
-    app.locals.admin = req.flash('admin');
     app.locals.user = req.user;
     next();
 });

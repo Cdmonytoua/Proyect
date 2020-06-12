@@ -19,6 +19,12 @@ helpers.isLogged = (req, res, next) => {
     }
     return res.redirect('/');
 };
+helpers.isAdmin = (req, res, next) => {
+    if(req.isAuthenticated() && req.user.Username == 'admin'){
+        return next();
+    }
+    return res.redirect('/');
+};
 helpers.isnotLogged = (req, res, next) => {
     if(!req.isAuthenticated()){
         return next();
