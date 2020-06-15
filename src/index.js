@@ -36,11 +36,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
     app.locals.error = req.flash('error');
+    app.locals.exito = req.flash('exito');
     app.locals.user = req.user;
     next();
 });
 app.use(require('./routes'));
 app.use(require('./routes/auth'));
+app.use(require('./routes/admin'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){

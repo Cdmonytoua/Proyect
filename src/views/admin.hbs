@@ -1,0 +1,60 @@
+<br>
+<div id="container">
+    <div style="margin-bottom: 20px;">
+        <button onclick="myFunction()">Ver tablas en ventana emergente</button>
+    </div>
+    <table>
+        <tr class="thead">
+            <td colspan="4">Categorías</td>
+        </tr>
+        <tr class="thead2">
+            <td colspan="1">ID</td>
+            <td colspan="1">Categoría</td>
+        </tr>
+        {{#each categorias}}
+        <tr>
+            <td>{{Id_Categoria}}</td>
+            <td>{{Nombre}}</td>
+        </tr>
+        {{/each}}
+        <tr class="spacer">
+            <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr class="thead">
+            <td colspan="4">Editoriales</td>
+        </tr>
+        <tr class="thead2">
+            <td colspan="1">ID</td>
+            <td colspan="1">Editorial</td>
+        </tr>
+        {{#each editoriales}}
+        <tr>
+            <td>{{Id_Editorial}}</td>
+            <td>{{Nombre}}</td>
+        </tr>
+        {{/each}}
+        <tr class="spacer">
+            <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr class="thead">
+            <td colspan="4">Autores</td>
+        </tr>
+        <tr class="thead2">
+            <td colspan="1">ID</td>
+            <td colspan="1">Autor</td>
+        </tr>
+        {{#each autores}}
+        <tr>
+            <td>{{Id_Autor}}</td>
+            <td>{{Nombre}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<script>
+    function myFunction() {
+        var myWindow = window.open("", "MsgWindow", "width=800,height=600");
+        myWindow.document.write("<title>Tablas</title>");
+        myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+    }
+</script>

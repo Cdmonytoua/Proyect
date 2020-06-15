@@ -5,21 +5,6 @@ const helper = require("../lib/helpers");
 router.get("/", (req, res) => {
     res.render("inicio", { style: "inicio.css" });
 });
-router.get("/admin", helper.isAdmin, (req, res) => {
-    res.render("admin_autor", { layout: "admin" });
-});
-router.get("/admin/libros", helper.isAdmin, (req, res) => {
-    res.render("admin_libros", { layout: "admin" });
-});
-router.get("/admin/editorial", helper.isAdmin, (req, res) => {
-    res.render("admin_editorial", { layout: "admin" });
-});
-router.get("/admin/categoria", helper.isAdmin, (req, res) => {
-    res.render("admin_categoria", { layout: "admin" });
-});
-router.get("/admin/autor", helper.isAdmin, (req, res) => {
-    res.render("admin_autor", { layout: "admin" });
-});
 router.get("/categorias", async (req, res) => {
     const categorias = await pool.query("SELECT * FROM Categorias");
     res.render("categorias", {style: "categorias.css", categorias});

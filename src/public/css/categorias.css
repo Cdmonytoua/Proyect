@@ -38,7 +38,7 @@ p {
   overflow: hidden;
   top: 0;
   right: 0;
-  background-color: #00838d;
+  background-color: #2196F3;
   border-radius: 0 4px 0 32px;
 }
 
@@ -78,7 +78,7 @@ p {
     z-index: -1;
     top: -16px;
     right: -16px;
-    background: #00838d;
+    background: #2196F3;
     height: 32px;
     width: 32px;
     border-radius: 32px;

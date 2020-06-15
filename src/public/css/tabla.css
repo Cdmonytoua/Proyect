@@ -1,0 +1,40 @@
+#container {
+  width: 752px;
+  box-shadow: 0 0 5px silver;
+  min-height: 200px;
+  background: white;
+  padding: 20px;
+  font-family: Arial;
+  font-size: 15px;
+  margin-left: 20%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, .7);
+}
+table:last-child {
+  margin-bottom: 0;
+}
+tr.thead td, td.thead {
+  font-weight: bold;
+  background: rgba(0, 0, 0, .05);
+  text-align: center;
+  color: rgba(0, 0, 0, .55);
+}
+tr.thead2 td, td.thead2 {
+  font-weight: bold;
+  background: rgba(0, 0, 0, .1);
+  text-align: center;
+  color: rgba(0, 0, 0, .55);
+}
+table td {
+  border: 1px solid rgb(200, 200, 200);
+  padding: 4px;
+}
+
+tr.spacer td {
+  border: none;
+}
