@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+    <link rel="stylesheet" href="/css/tabla.css">
+</head>
+
+<body>
+    <br>
+    <div id="container">
+        <table>
+            <tr class="thead">
+                <td colspan="4">Categorías</td>
+            </tr>
+            <tr class="thead2">
+                <td colspan="1">ID</td>
+                <td colspan="1">Categoría</td>
+            </tr>
+            {{#each categorias}}
+            <tr>
+                <td>{{Id_Categoria}}</td>
+                <td>{{Nombre}}</td>
+            </tr>
+            {{/each}}
+            <tr class="spacer">
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr class="thead">
+                <td colspan="4">Editoriales</td>
+            </tr>
+            <tr class="thead2">
+                <td colspan="1">ID</td>
+                <td colspan="1">Editorial</td>
+            </tr>
+            {{#each editoriales}}
+            <tr>
+                <td>{{Id_Editorial}}</td>
+                <td>{{Nombre}}</td>
+            </tr>
+            {{/each}}
+            <tr class="spacer">
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr class="thead">
+                <td colspan="4">Autores</td>
+            </tr>
+            <tr class="thead2">
+                <td colspan="1">ID</td>
+                <td colspan="1">Autor</td>
+            </tr>
+            {{#each autores}}
+            <tr>
+                <td>{{Id_Autor}}</td>
+                <td>{{Nombre}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</body>
+
+</html>

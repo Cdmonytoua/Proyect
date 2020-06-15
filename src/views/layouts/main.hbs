@@ -43,14 +43,14 @@
                 <a href="/">Inicio</a>
                 <a href="#libros">Libros</a>
                 <a href="/categorias">Categorías</a>
-                <a href="#autores">Autores</a>
-                <a href="#editoriales">Editoriales</a>
+                <a href="/autores">Autores</a>
+                <a href="/editoriales">Editoriales</a>
                 {{#ifEquals user.Username "admin" }}
                     <a href="/admin">Admin</a>
                 {{/ifEquals}}
                 <div class="search-container">
                     <form action="/action_page.php">
-                        <input type="text" placeholder="Search.." name="search">
+                        <input type="text" placeholder="Buscar..." name="search">
                         {{#if user}}
                         <button type="button" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"> Hola,
                                 {{user.Username}}</i></button>

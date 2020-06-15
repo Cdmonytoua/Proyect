@@ -1,7 +1,7 @@
 <br>
 <div id="container">
     <div style="margin-bottom: 20px;">
-        <button onclick="myFunction()">Ver tablas en ventana emergente</button>
+        <button onclick="tab()">Ver tablas en ventana emergente</button>
     </div>
     <table>
         <tr class="thead">
@@ -13,7 +13,8 @@
         </tr>
         {{#each categorias}}
         <tr>
-            <td>{{Id_Categoria}}</td>
+            <td style="cursor: pointer;" onClick="document.location.href='/admin/eliminar_categoria/{{Id_Categoria}}';">
+                {{Id_Categoria}}</td>
             <td>{{Nombre}}</td>
         </tr>
         {{/each}}
@@ -29,7 +30,8 @@
         </tr>
         {{#each editoriales}}
         <tr>
-            <td>{{Id_Editorial}}</td>
+            <td style="cursor: pointer;" onClick="document.location.href='/admin/eliminar_editorial/{{Id_Editorial}}';">
+                {{Id_Editorial}}</td>
             <td>{{Nombre}}</td>
         </tr>
         {{/each}}
@@ -45,16 +47,15 @@
         </tr>
         {{#each autores}}
         <tr>
-            <td>{{Id_Autor}}</td>
+            <td style="cursor: pointer;" onClick="document.location.href='/admin/eliminar_autor/{{Id_Autor}}';">
+                {{Id_Autor}}</td>
             <td>{{Nombre}}</td>
         </tr>
         {{/each}}
     </table>
 </div>
 <script>
-    function myFunction() {
-        var myWindow = window.open("", "MsgWindow", "width=800,height=600");
-        myWindow.document.write("<title>Tablas</title>");
-        myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+    function tab() {
+        var myWindow = window.open("/admin/tablas", "MsgWindow", "width=900,height=720");
     }
 </script>

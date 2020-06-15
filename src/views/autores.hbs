@@ -1,0 +1,12 @@
+<br>
+<div class="container">
+    {{#each autores}}
+    <a class="card2" href="/categorias/{{Id_Autor}}">
+        <h3>{{ Nombre }}</h3>
+        <p class="small">Click aquí para ver todos los libros de este autor.</p>
+        <div class="go-corner" href="#">
+            <div class="go-arrow"> → </div>
+        </div>
+    </a>
+    {{/each}}
+</div>

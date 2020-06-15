@@ -8,6 +8,12 @@ router.get("/admin", helper.isAdmin, async (req, res) => {
     const autores = await pool.query("SELECT * FROM Autores");
     res.render("admin", { style: "tabla.css", layout: "admin" , categorias, editoriales, autores});
 });
+router.get("/admin/tablas", helper.isAdmin, async (req, res) => {
+    const categorias = await pool.query("SELECT * FROM Categorias");
+    const editoriales = await pool.query("SELECT * FROM Editoriales");
+    const autores = await pool.query("SELECT * FROM Autores");
+    res.render("tablas", {layout: false, categorias, editoriales, autores});
+});
 router.get("/admin/libros", helper.isAdmin, (req, res) => {
     res.render("admin_libros", { layout: "admin" });
 });
@@ -63,5 +69,29 @@ router.post("/admin/autor", helper.isAdmin, async (req, res) => {
         req.flash('error', 'Error al tratar de insertar');
     }
     res.redirect('/admin/autor');
+});
+router.get("/admin/eliminar_categoria/:id", helper.isAdmin, async (req, res) =>{
+    const { id } = req.params;
+    const results = await pool.query("DELETE FROM Categorias WHERE Id_Categoria = ?", [id]);
+    if (results.affectedRows == 0){
+        req.flash('error', 'No existe categoría con ese ID');
+    }
+    res.redirect("/admin");
+});
+router.get("/admin/eliminar_editorial/:id", helper.isAdmin, async (req, res) =>{
+    const { id } = req.params;
+    const results = await pool.query("DELETE FROM Editoriales WHERE Id_Editorial = ?", [id]);
+    if (results.affectedRows == 0){
+        req.flash('error', 'No existe editorial con ese ID');
+    }
+    res.redirect("/admin");
+});
+router.get("/admin/eliminar_autor/:id", helper.isAdmin, async (req, res) =>{
+    const { id } = req.params;
+    const results = await pool.query("DELETE FROM Autores WHERE Id_Autor = ?", [id]);
+    if (results.affectedRows == 0){
+        req.flash('error', 'No existe autor con ese ID');
+    }
+    res.redirect("/admin");
 });
 module.exports = router;

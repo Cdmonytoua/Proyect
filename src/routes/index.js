@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 router.get("/categorias", async (req, res) => {
     const categorias = await pool.query("SELECT * FROM Categorias");
-    res.render("categorias", {style: "categorias.css", categorias});
+    res.render("categorias", {style: "card_menu.css", categorias});
 });
 router.get("/categorias/:id", async (req, res) => {
     const { id } = req.params;
@@ -17,6 +17,14 @@ router.get("/categorias/:id", async (req, res) => {
     }else{
         res.redirect('/categorias');
     }
+});
+router.get("/autores", async (req, res) => {
+    const autores = await pool.query("SELECT * FROM Autores");
+    res.render("autores", {style: "card_menu.css", autores});
+});
+router.get("/editoriales", async (req, res) => {
+    const editoriales = await pool.query("SELECT * FROM Editoriales");
+    res.render("editoriales", {style: "card_menu.css", editoriales});
 });
 
 module.exports = router;
