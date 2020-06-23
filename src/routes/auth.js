@@ -7,6 +7,7 @@ router.get("/registrar", helper.isnotLogged, (req, res) => {
     res.render("registrar", {style: "registrar.css"});
 });
 router.get("/micuenta", helper.isLogged, (req, res) => {
+    console.log(req.session.cart);
     res.render("micuenta");
 });
 router.get("/salir", helper.isLogged, (req, res) => {
@@ -19,7 +20,7 @@ router.post("/registrar", passport.authenticate('local.registrar', {
     failureFlash: true
 }));
 router.post("/login", (req, res, next) => {
-    passport.authenticate('local.iniciar',{
+    passport.authenticate('local.iniciar', {
         successRedirect: 'back',
         failureRedirect: 'back',
         failureFlash: true

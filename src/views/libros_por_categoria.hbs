@@ -1,16 +1,23 @@
-<div class="cards">
-    {{#each libros}}
-    <div class="card" onclick="location.href='/libro_ejemplo';" style="cursor: pointer;">
-        <div>
-            <img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073190183.jpg"
-                style="width:35%; height:35%;">
+<div class="container">
+    <div class="items">
+        {{#each libros}}
+        <div class="product">
+            <h3> {{Nombre}} </h3>
+            <div>
+                <img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073190183.jpg"
+                    style="width:35%; height:35%;">
+            </div>
+            <div class="price">
+                <span>${{Precio}}</span>
+                <div class="form-items">
+                    <form method="POST" action="/agregar_a_carrito">
+                        <input type="text" name="cantidad" value="1">
+                        <input type="hidden" name="id" value={{Id_Libro}}>
+                        <input type="submit" class="item-select" value="Agregar al carrito">
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <b>
-                <p> {{ Nombre }} </p>
-            </b>
-            <p> $ 0 </p>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>

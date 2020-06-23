@@ -1,25 +1,87 @@
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1rem;
-    padding: 20px;
+a {
+	color: #00B7FF
 }
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-  
-.card {
-    border: 2px solid #e7e7e7;
-    border-radius: 4px;
-    padding: .5rem;
-    width: 95%;
-    margin: auto;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
+
 .container {
-    padding: 2px 16px;
+	margin: auto;
+    max-width: 1200px;
+}
+
+.items {
+	margin-top: 40px;
+	padding: 10px 0 0 10px;
+    overflow: auto;
+    
+}
+
+.product {
+	margin: 0 10px 10px 0;
+	float: left;
+	width: calc(33.33% - 40px);
+	padding: 0 15px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2)
+}
+
+.product h3 {
+	color: #00B7FF;
+	font-size: 1.2em
+}
+
+.product p {
+	min-height: 100px
+}
+
+.price {
+	padding: 15px;
+	margin: 0 -15px;
+	border-top: 1px solid #f2f2f2;
+	overflow: auto
+}
+
+.price span {
+	float: left;
+	font-weight: 700;
+	font-size: 1.3em;
+	color: #7baf04
+}
+
+.price .form-items {
+	float: right
+}
+
+.form-items input {
+	font-family: inherit;
+	border: 1px solid #ddd
+}
+
+.form-items input[type=text] {
+	width: 24px;
+	margin-right: 5px;
+	text-align: center;
+	padding: 2px 6px
+}
+
+.form-items input[type=button],
+.form-items input[type=submit] {
+	border-radius: 0;
+	background: #f2f2f2;
+	padding: 2px 6px
+}
+.success {
+	border: rgba(114, 219, 10, 0.29) 1px solid;
+	padding: 15px;
+	color: #7baf04;
+	margin: 15px 0
+}
+
+@media (max-width: 992px) {
+	.product {
+		width: calc(50% - 40px)
+	}
+}
+
+@media (max-width: 768px) {
+	.product {
+		width: calc(100% - 40px)
+	}
 }

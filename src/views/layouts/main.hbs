@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,38 +27,41 @@
                 </form>
             </div>
             {{else}}
-                <div class="form-popup" id="myForm">
-                    <form action="/login" class="form-container" method="POST">
-                        <h1>Inicia sesión</h1>
-                        <label for="username"><b>Username</b></label>
-                        <input type="text" placeholder="Nombre de usuario" name="username" required>
-                        <label for="password"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
-                        <button type="submit" class="btn">Iniciar sesión</button>
-                        <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
-                    </form>
-                </div>
+            <div class="form-popup" id="myForm">
+                <form action="/login" class="form-container" method="POST">
+                    <h1>Inicia sesión</h1>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Nombre de usuario" name="username" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit" class="btn">Iniciar sesión</button>
+                    <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
+                </form>
+            </div>
             {{/if}}
             <div class="topnav">
-                <a href="/">Inicio</a>
-                <a href="#libros">Libros</a>
-                <a href="/categorias">Categorías</a>
-                <a href="/autores">Autores</a>
-                <a href="/editoriales">Editoriales</a>
+                <a class="item" href="/">Inicio</a>
+                <a class="item" href="#libros">Libros</a>
+                <a class="item" href="/categorias">Categorías</a>
+                <a class="item" href="/autores">Autores</a>
+                <a class="item" href="/editoriales">Editoriales</a>
                 {{#ifEquals user.Username "admin" }}
-                    <a href="/admin">Admin</a>
+                <a href="/admin">Admin</a>
                 {{/ifEquals}}
+                {{#if user}}
+                <a style="float: right" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"
+                        style="cursor: pointer;"> Hola,
+                        {{user.Username}}</i></a>
+                <a href="/carrito" style="float:right"><i class="fa fa-shopping-cart" aria-hidden="true"
+                        style="cursor: pointer;"></i></a>
+                {{else}}
+                <a style="float:right" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"
+                        style="cursor: pointer;"></i></a>
+                {{/if}}
                 <div class="search-container">
                     <form action="/action_page.php">
                         <input type="text" placeholder="Buscar..." name="search">
-                        {{#if user}}
-                        <button type="button" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"> Hola,
-                                {{user.Username}}</i></button>
-                        {{else}}
-                        <button type="button" onclick="openForm()"><i class="fa fa-user"
-                                aria-hidden="true"></i></button>
-                        {{/if}}
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>

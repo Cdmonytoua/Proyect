@@ -1,12 +1,14 @@
-const express = require('express');
-const morgan = require('morgan');
-const app = express();
-const path = require('path');
-const hbs = require('express-handlebars');
-const flash = require('connect-flash');
-const session = require('express-session');
-const mysqlsession = require('express-mysql-session');
-const passport = require('passport');
+const express = require('express'),
+morgan = require('morgan'),
+app = express(),
+path = require('path'),
+hbs = require('express-handlebars'),
+flash = require('connect-flash'),
+session = require('express-session'),
+cookieParser = require('cookie-parser'),
+mysqlsession = require('express-mysql-session'),
+passport = require('passport');
+
 const { database } = require('./keys');
 
 require('./lib/passport');
@@ -24,17 +26,18 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cookieParser());
 app.use(session({
     secret: 'mysession',
     resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false },
+    saveUninitialized: true,
     store: new mysqlsession(database)
 }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
+    res.locals.session = req.session;
     app.locals.error = req.flash('error');
     app.locals.exito = req.flash('exito');
     app.locals.user = req.user;
@@ -43,6 +46,7 @@ app.use((req, res, next) => {
 app.use(require('./routes'));
 app.use(require('./routes/auth'));
 app.use(require('./routes/admin'));
+app.use(require('./routes/carrito'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
