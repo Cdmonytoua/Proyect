@@ -1,26 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-var data;
-pool.query('SELECT * FROM Libros', function (err, rows) {
-    if (err) throw err;
-    data = rows;
+router.get("/limpiar", (req, res) => {
+    req.session.carrito = {};
+    req.flash('exito', 'Carrito vaciado');
+    res.redirect('/carrito');
 });
 router.get("/carrito", (req, res) => {
-    res.render("carrito");
-    console.log(req.session.carrito);
-});
-router.post("/agregar_a_carrito", (req, res) => {
-    carrito = req.session.carrito;
+    var carrito = req.session.carrito;
     if (!carrito) {
         carrito = req.session.carrito = {};
-        console.log("here");
+    }
+    var ids = Object.keys(carrito);
+    if (ids.length > 0) {
+        pool.query('SELECT * FROM Libros WHERE Id_Libro IN (' + ids + ')', (err, rows) => {
+            if (err) throw err;
+            libros = rows;
+            res.render('carrito', { style: "carrito.css", libros, carrito });
+        });
+    } else res.render("carrito", { style: "carrito.css", carrito });
+});
+router.post("/agregar_a_carrito", (req, res) => {
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
     }
     var id = req.body.id;
     var cantidad = parseInt(req.body.cantidad, 10);
     carrito[id] = (carrito[id] || 0) + cantidad;
-    var ids = Object.keys(carrito);
-    console.log(carrito);
+    req.flash('exito', 'Libro agregado correctamente');
     res.redirect('back');
 });
 module.exports = router;

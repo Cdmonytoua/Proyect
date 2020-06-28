@@ -1,0 +1,26 @@
+{{#if carrito}}
+<br><br>
+<div class="container">
+    {{#if libros}}
+    {{#checklength libros 0}}
+    <div class="cart-top">Carrito</div>
+    {{#each libros}}
+    <div class="cart-item">
+        <span>
+            {{Nombre}}
+        </span>
+        <span>
+            {{#count ../carrito Id_Libro }} {{/count}}
+        </span>
+        <span>
+            {{#subtotal ../carrito Id_Libro Precio}} {{/subtotal}}
+        </span>
+    </div>
+    {{/each}}
+    <div class="cart-bottom"><a href="/limpiar" class="button">Limpiar</a><a href="/comprar"
+            class="button">Comprar</a><b>Total : {{#total carrito libros}} {{/total}}</b></div>
+    {{/checklength}}
+
+    {{/if}}
+</div>
+{{/if}}

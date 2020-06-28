@@ -1,3 +1,8 @@
+.container {
+	margin: auto;
+    max-width: 1200px;
+}
+
 .cart {
 	margin: 10px 10px -30px 10px;
 	max-height: 100%;
