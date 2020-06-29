@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 router.get("/libros", async (req, res) => {
     const libros = await pool.query("SELECT * FROM Libros");
-    res.render("libros_por", { style: "libros_por.css", libros });
+    res.render("libros", { style: "libros.css", libros });
 });
 router.get("/categorias", async (req, res) => {
     const categorias = await pool.query("SELECT * FROM Categorias");
@@ -20,8 +20,9 @@ router.get("/categorias/:id", async (req, res) => {
     const { id } = req.params;
     const libros = await pool.query('SELECT * FROM Libros WHERE Categoria = ?', [id]);
     if (libros.length > 0) {
-        res.render("libros_por", { style: "libros_por.css", libros });
+        res.render("libros", { style: "libros.css", libros });
     } else {
+        req.flash('error', 'No hay libros asociados');
         res.redirect('/categorias');
     }
 });
@@ -33,8 +34,9 @@ router.get("/autores/:id", async (req, res) => {
     const { id } = req.params;
     const libros = await pool.query('SELECT * FROM Libros WHERE Autor = ?', [id]);
     if (libros.length > 0) {
-        res.render("libros_por", { style: "libros_por.css", libros });
+        res.render("libros", { style: "libros.css", libros });
     } else {
+        req.flash('error', 'No hay libros asociados');
         res.redirect('/autores');
     }
 });
@@ -46,9 +48,20 @@ router.get("/editoriales/:id", async (req, res) => {
     const { id } = req.params;
     const libros = await pool.query('SELECT * FROM Libros WHERE Editorial = ?', [id]);
     if (libros.length > 0) {
-        res.render("libros_por", { style: "libros_por.css", libros });
+        res.render("libros", { style: "libros.css", libros });
     } else {
+        req.flash('error', 'No hay libros asociados');
         res.redirect('/editoriales');
     }
+});
+
+router.post("/buscar", async (req, res) => {
+    const { search } = req.body;
+    const sql = '%'.concat(search.concat('%'));
+    await pool.query('SELECT * FROM Libros WHERE Nombre LIKE ?', [sql], function (err, rows) {
+        if (err) throw err;
+        const libros = rows;
+        res.render("libros", { style: "libros.css", libros });
+    });
 });
 module.exports = router;

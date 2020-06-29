@@ -47,3 +47,9 @@
 	display: inline-block;
 	margin-right: 5px
 }
+.success {
+	border: rgba(114, 219, 10, 0.29) 1px solid;
+	padding: 15px;
+	color: #7baf04;
+	margin: 15px 0
+}

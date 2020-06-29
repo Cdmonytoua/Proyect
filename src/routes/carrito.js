@@ -6,14 +6,14 @@ router.get("/limpiar", (req, res) => {
     req.flash('exito', 'Carrito vaciado');
     res.redirect('/carrito');
 });
-router.get("/carrito", (req, res) => {
+router.get("/carrito", async (req, res) => {
     var carrito = req.session.carrito;
     if (!carrito) {
         carrito = req.session.carrito = {};
     }
     var ids = Object.keys(carrito);
     if (ids.length > 0) {
-        pool.query('SELECT * FROM Libros WHERE Id_Libro IN (' + ids + ')', (err, rows) => {
+        await pool.query('SELECT * FROM Libros WHERE Id_Libro IN (' + ids + ')', (err, rows) => {
             if (err) throw err;
             libros = rows;
             res.render('carrito', { style: "carrito.css", libros, carrito });
