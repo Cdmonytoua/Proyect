@@ -1,0 +1,74 @@
+<div class="container">
+    <br>
+    <p>Monto total: ${{total}}</p>
+    <p id="form-errors"></p>
+    <form class="form-horizontal" role="form" id="product-form" action="/carrito/comprar" method="post">
+        <fieldset>
+            <legend>Pago</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-holder-name">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="card-holder-name" id="card-holder-name"
+                        placeholder="Nombre del propietario">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-number">Número de la tarjeta</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="card-number" id="card-number"
+                        placeholder="Tarjeta de crédito/débito">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="expiry-month">Fecha de expiración</label>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                                <option>Mes</option>
+                                <option value="01">Enero</option>
+                                <option value="02">Febrero</option>
+                                <option value="03">Marzo</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Mayo</option>
+                                <option value="06">Junio</option>
+                                <option value="07">Julio</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control" name="expiry-year" id="expiry-year">
+                                <option value="16">2016</option>
+                                <option value="17">2017</option>
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="cvv">CVV</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Código de seguridad">
+                </div>
+            </div>
+            <input type="hidden" name="name" value="x">
+            <input type="hidden" name="price" value="s">
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" id="submit-btn" class="btn btn-success">Pagar ahora</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+</div>

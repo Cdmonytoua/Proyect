@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>L Library</title>
+    {{#if bootstrap}}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    {{/if}}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/alertmsg.css">
@@ -19,12 +22,11 @@
 <body>
     <div id="page-container">
         <div class="social-bar">
-            <a href="https://facebook.com" class="icon icon-facebook" target="_blank"></a>
-            <a href="https://twitter.com" class="icon icon-twitter" target="_blank"></a>
-            <a href="https://youtube.com" class="icon icon-youtube" target="_blank"></a>
-            <a href="https://instagram.com" class="icon icon-instagram" target="_blank"></a>
+            <a href="https://facebook.com" class="icono icono-facebook" target="_blank"></a>
+            <a href="https://twitter.com" class="icono icono-twitter" target="_blank"></a>
+            <a href="https://youtube.com" class="icono icono-youtube" target="_blank"></a>
+            <a href="https://instagram.com" class="icono icono-instagram" target="_blank"></a>
         </div>
-
         <div id="content-wrap">
             {{#if user}}
             <div class="form-popup" id="myForm">
@@ -80,7 +82,13 @@
         </div>
 
     </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     {{>select}}
+    {{#if bootstrap}}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    {{/if}}
+    <script type="text/javascript" src="//js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="/js/pago.js"></script>
     <script>
         function openForm() {
             document.getElementById("myForm").style.display = "block";

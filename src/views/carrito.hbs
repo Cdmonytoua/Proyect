@@ -17,11 +17,11 @@
         </span>
     </div>
     {{/each}}
-    <div class="cart-bottom"><a href="/limpiar" class="button">Limpiar</a><a href="/comprar"
-            class="button">Comprar</a><b>Total : {{#total carrito libros}} {{/total}}</b></div>
+    <div class="cart-bottom"><a href="/carrito/limpiar" class="button">Limpiar</a><a href="/carrito/comprar"
+            class="button">Comprar</a><b>Total: {{total}}</b></div>
     {{/checklength}}
     {{else}}
-    <div class="success">Carrito vacio, agregue productos.</div>
+    <div class="success">Carrito vacío, agregue productos.</div>
     {{/if}}
 </div>
 {{/if}}

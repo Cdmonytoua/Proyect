@@ -15,12 +15,4 @@ helpers.count = function (carrito, id) {
 helpers.subtotal = function (carrito, id, precio) {
     return Math.round((carrito[id] * precio ) * 100) / 100;
 };
-helpers.total = function (carrito, libros) {
-    var total = 0;
-    libros.forEach(libro => {
-        const {Id_Libro, Precio} = libro;
-        total += helpers.subtotal(carrito, Id_Libro, Precio);    
-    });
-    return total;
-};
 module.exports = helpers;

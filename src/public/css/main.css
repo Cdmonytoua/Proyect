@@ -82,7 +82,7 @@ footer .contenedor{
   z-index: 100;
 }
 
-.icon{
+.icono{
   color: white;
   text-decoration: none;
   padding: .7rem;
@@ -90,31 +90,31 @@ footer .contenedor{
   transition: all .5s;
 }
 
-.icon-facebook{
+.icono-facebook{
   background-color: rgb(0, 0, 255);
 }
 
-.icon-twitter{
+.icono-twitter{
   background-color: rgb(73, 182, 255);
 }
 
-.icon-youtube{
+.icono-youtube{
   background-color: rgb(255, 0, 0);
 }
 
-.icon-instagram{
+.icono-instagram{
   background-color: rgba(218, 156, 253, 0.993);
 }
 
-.icon:first-child{
+.icono:first-child{
   border-radius: 1rem 0 0 0;
 }
 
-.icon:last-child{
+.icono:last-child{
   border-radius: 0 0 0 1rem;
 }
 
-.icon:hover{
+.icono:hover{
   padding-right: 3rem;
   border-radius: 1rem 0 0 1rem;
   box-shadow: 0 0 .5rem rgba(0,0,0,0.42);
@@ -132,7 +132,7 @@ footer .contenedor{
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icono-"], [class*=" icono-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
@@ -147,18 +147,18 @@ footer .contenedor{
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-mail2:before {
+.icono-mail2:before {
   content: "\ea84";
 }
-.icon-facebook:before {
+.icono-facebook:before {
   content: "\ea90";
 }
-.icon-instagram:before {
+.icono-instagram:before {
   content: "\ea92";
 }
-.icon-twitter:before {
+.icono-twitter:before {
   content: "\ea96";
 }
-.icon-youtube:before {
+.icono-youtube:before {
   content: "\ea9d";
 }

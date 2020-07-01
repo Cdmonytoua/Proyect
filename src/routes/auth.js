@@ -7,8 +7,7 @@ router.get("/registrar", helper.isnotLogged, (req, res) => {
     res.render("registrar", {style: "registrar.css"});
 });
 router.get("/micuenta", helper.isLogged, (req, res) => {
-    console.log(req.session.cart);
-    res.render("micuenta");
+    res.render("micuenta", {bootstrap: true});
 });
 router.get("/salir", helper.isLogged, (req, res) => {
     req.logOut();
