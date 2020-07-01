@@ -202,47 +202,60 @@ body{
     font-family: helvetica;
 }
 
+<!--Tsecundaria-->
+
+.Tsecundaria{
+	text-align: center;
+	align-items: center;
+	margin: auto;
+}
 
 <!--footer-->
 
-.contenedor{
-    width: 98%;
-    margin: auto;   
-}
-
-.copy{
-    font-size: 12pt;
-}
-
-footer .contenedor{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.sociales{
-    
-    text-align: center;
+footer {
+    color: white;
+    background-color: #1A1A1A;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;  
+}
+   
+#header-footer{
+    margin: auto;
+    width: 50%;
+    font-family:Arial;
 }
 
-.sociales img{
-    margin: 0px 5px;
+ul,ol{
+    list-style: none;
 }
 
-@media (min-width:768px){
-    footer .contenedor{
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .sociales{
-        width: auto;
-    }
+.nav-footer li a{
+    background-color: #FFFFFF;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
 }
 
-@media (min-width:1024px){
-    .contenedor{
-        width: 1000px;
-    }
+/*Pasar mouse*/
+.nav-footer li a:hover{
+    background-color: #4b99f6;
+}
+
+/* todos los li que esten directos en nav */
+.nav-footer > li{
+    float: left;
+}
+
+.nav-footer li ul{
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav-footer li:hover > ul {
+    display: block;
 }
