@@ -199,7 +199,9 @@ header{
 }
 
 body{
-    font-family: helvetica;
+	font-family: helvetica;
+	margin: 0%;
+	padding: 0%;
 }
 
 <!--Tsecundaria-->
@@ -211,8 +213,7 @@ body{
 }
 
 <!--footer-->
-
-footer {
+footer{
     color: white;
     background-color: #1A1A1A;
     width: 100%;
@@ -228,6 +229,10 @@ footer {
     font-family:Arial;
 }
 
+#container-footer{
+    text-align: center;
+}
+    
 ul,ol{
     list-style: none;
 }
