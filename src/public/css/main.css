@@ -1,66 +1,3 @@
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: auto;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-.form-container input[type=text], .form-container input[type=password] {
-  width: 90%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-.form-container .cancel {
-  background-color: red;
-}
-
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-<!--footer-->
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-.contenedor{
-    width: 98%;
-    margin: auto;   
-}
-
-.copy{
-    font-size: 12pt;
-}
-
-footer .contenedor{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -69,13 +6,11 @@ footer .contenedor{
 #content-wrap {
   padding-bottom: 2.5rem;   
 }
-
-
 .social-bar{
   position: fixed;
   right: 0;
   top: 35%;
-  font-size: 1.5rem;
+  font-size: 1.4vw;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -161,4 +96,107 @@ footer .contenedor{
 }
 .icono-youtube:before {
   content: "\ea9d";
+}
+
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: auto;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container input[type=text], .form-container input[type=password] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.footer{
+    color: white;
+    background-color: #1A1A1A;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;  
+}
+   
+#header-footer{
+    margin: auto;
+    width: 50%;
+    font-family:Arial;
+}
+
+.container-footer{
+    text-align: center;
+}
+    
+ul,ol{
+    list-style: none;
+}
+
+.nav-footer li a{
+    background-color: #FFFFFF;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+/*Pasar mouse*/
+.nav-footer li a:hover{
+    background-color: #4b99f6;
+}
+
+/* todos los li que esten directos en nav */
+.nav-footer > li{
+    float: left;
+}
+
+.nav-footer li ul{
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav-footer li:hover > ul {
+    display: block;
+}
+
+<!--Tsecundaria-->
+
+.Tsecundaria{
+	text-align: center;
+	align-items: center;
+	margin: auto;
 }

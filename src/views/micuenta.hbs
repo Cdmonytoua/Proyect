@@ -5,39 +5,39 @@
             <h5>Actualizar información</h5>
         </div>
         <div class='panel-body'>
-            <form class='form-horizontal' role='form'>
+            <form class='form-horizontal' role='form' action="/micuenta/actualizar" method="POST">
 
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Nombre</label>
                     <div class='col-md-8'>
                         <div class='col-md-2'>
                             <div class='form-group internal'>
-                                <input class='form-control' placeholder='Nombre' type='text'>
+                                <input class='form-control' name="Nombre" value={{user.Nombre}} type='text'>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' placeholder='Apellido paterno' type='text'>
+                                <input class='form-control' name="ApellidoP" value={{user.ApellidoP}} type='text'>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' placeholder='Apellido materno' type='text'>
+                                <input class='form-control' name="ApellidoM" value={{user.ApellidoM}} type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contacto</label>
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_email' placeholder='E-mail' type='text'>
+                                <input class='form-control' id='id_email' name="Correo" value={{user.Correo}} type='text'>
                             </div>
                         </div>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' placeholder='Dirección' type='text'>
+                                <input class='form-control' name="Direccion" value='{{user.Direccion}}' type='text'>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal input-group'>
-                                <input class='form-control' placeholder='Código postal'>
+                                <input class='form-control' name="CodigoPostal" value={{user.CodigoPostal}}>
                             </div>
                         </div>
                     </div>
@@ -57,14 +57,14 @@
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal input-group'>
-                                <input class='form-control' placeholder='Contraseña'>
+                                <input class='form-control' type="password" name="Password" placeholder='Contraseña'>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class='form-group'>
                     <div class='col-md-offset-4 col-md-3'>
-                        <button type="button" class="btn btn-success">Aceptar</button>
+                        <button type="submit" class="btn btn-success">Aceptar</button>
                     </div>
                 </div>
             </form>

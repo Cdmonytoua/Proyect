@@ -16,8 +16,10 @@ helpers.matchPassword = async (password, encryptedpassword) => {
 helpers.isLogged = (req, res, next) => {
     if(req.isAuthenticated()){
         return next();
+    }else{
+        req.flash('error', 'Necesitas iniciar sesión primero');
+        return res.redirect('/');
     }
-    return res.redirect('/');
 };
 helpers.isAdmin = (req, res, next) => {
     if(req.isAuthenticated() && req.user.Username == 'admin'){
