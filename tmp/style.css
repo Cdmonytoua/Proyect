@@ -268,12 +268,14 @@ ul,ol{
 /* new */
 
 #imgt1,#imgt2{
-	width: 500px;
-	height: 250px;
+	width: 400px;
+	height: 200px;
+	border-radius: 15px;
 }
 
 #imgt3,#imgt4,#imgt5,#imgt6{
 	width: 800px;
-	height: 500px;
+	height: 400px;
+	border-radius: 15px;
 }
 
