@@ -192,11 +192,3 @@ ul,ol{
 .nav-footer li:hover > ul {
     display: block;
 }
-
-<!--Tsecundaria-->
-
-.Tsecundaria{
-	text-align: center;
-	align-items: center;
-	margin: auto;
-}

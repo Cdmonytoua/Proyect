@@ -14,7 +14,7 @@ adminController.tablas = async (req, res) => {
     res.render("tablas", { layout: false, categorias, editoriales, autores });
 };
 adminController.libros = (req, res) => {
-    res.render("admin_editorial", { layout: "admin" });
+    res.render("admin_libros", { layout: "admin" });
 };
 adminController.editoriales = (req, res) => {
     res.render("admin_editorial", { layout: "admin" });

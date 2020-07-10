@@ -11,5 +11,7 @@ router.get("/autores", mainController.autores);
 router.get("/autores/:id", mainController.librosPorIDAutor);
 router.get("/editoriales", mainController.editoriales);
 router.get("/editoriales/:id", mainController.librosPorIDEditorial);
-router.post("/buscar", mainController.librosBusqueda);
+router.post("/buscar", mainController.buscar);
+router.get("/buscar/:title", mainController.librosBusqueda);
 module.exports = router;
+

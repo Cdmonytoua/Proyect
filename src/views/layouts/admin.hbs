@@ -2,31 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/registrar.css">
-    <link rel="stylesheet" href="/css/alertmsg.css">
-    <link rel="stylesheet" href="/css/exito.css">
-    {{#if style}}
-    <link rel="stylesheet" href="/css/{{style}}">
-    {{/if}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/registrar.css">
+  <link rel="stylesheet" href="/css/alertmsg.css">
+  <link rel="stylesheet" href="/css/exito.css">
+  {{#if style}}
+  <link rel="stylesheet" href="/css/{{style}}">
+  {{/if}}
 </head>
+
 <body>
-    <div class="topnav">
-        <a href="/"><i class="fa fa-arrow-left"></i></a>
-        <a class="item" href="/admin">Tablas</a>
-        <a class="item" href="/admin/libros">Agregar libro</a>
-        <a class="item" href="/admin/autor">Agregar autor</a>
-        <a class="item" href="/admin/categoria">Agregar categoría</a>
-        <a class="item" href="/admin/editorial">Agregar editorial</a>
-    </div>
-    {{>exito}}
-    {{>error}}
-    {{{ body }}}
-    {{>select}}
+  <div class="topnav">
+    <a href="/"><i class="fa fa-arrow-left"></i></a>
+    <a class="item" href="/admin">Tablas</a>
+    <a class="item" href="/admin/libros">Agregar libro</a>
+    <a class="item" href="/admin/autor">Agregar autor</a>
+    <a class="item" href="/admin/categoria">Agregar categoría</a>
+    <a class="item" href="/admin/editorial">Agregar editorial</a>
+  </div>
+  {{>exito}}
+  {{>error}}
+  {{{ body }}}
+  {{>select}}
 </body>
 
 </html>

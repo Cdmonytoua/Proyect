@@ -57,15 +57,20 @@ mainController.librosPorIDEditorial = (req, res) => {
     });
 };
 mainController.librosBusqueda = (req, res) => {
-    const { search } = req.body;
-    const substr = '%'.concat(search.concat('%'));
+    const { title } = req.params;
+    const substr = '%'.concat(title.concat('%'));
     mainModel.librosBusqueda([substr], (err, rows) => {
         var libros;
-        if (search.length == 0) {
+        if (title.length == 0) {
             libros = [];
         }
         else libros = rows;
         res.render("libros", { style: "libros.css", libros });
     });
+};
+mainController.buscar = (req, res) => {
+    const { search } = req.body;
+    const route = "/buscar/".concat(search);
+    res.redirect(route);
 };
 module.exports = mainController;

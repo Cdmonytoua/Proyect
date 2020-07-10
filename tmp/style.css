@@ -101,36 +101,6 @@ img{
 	margin: auto;
 }
 
-<!--Contenedorlibros-->
-
-#cl{
-	text-align: center;
-}
-
-.contlibros{
-	margin: auto;
-	text-align: center;
-}
-
-.contlibros img{
-	padding: 30px;
-}
-
-fieldset {
-	background-color: #eeeeee;
-}
-  
-legend {
-	background-color: gray;
-	color: white;
-	padding: 5px 10px;
-	float: center;
-}
-  
-input {
-	margin: 5px;
-}
-
 <!--Cambio-->
 
 header{
@@ -186,33 +156,6 @@ header{
 	background: rgb(255, 251, 2);
 }
 
-<!--Fin-->
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.main{
-	padding: 2rem;
-}
-
-body{
-	font-family: helvetica;
-	margin: 0%;
-	padding: 0%;
-}
-
-<!--Tsecundaria-->
-
-.Tsecundaria{
-	text-align: center;
-	align-items: center;
-	margin: auto;
-}
-
-<!--footer-->
 footer{
     color: white;
     background-color: #1A1A1A;

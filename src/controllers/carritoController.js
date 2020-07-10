@@ -62,7 +62,7 @@ carritoController.comprar = (req, res) => {
     }, (err, charge) => {
         if (err) {
             req.flash('error', 'Ocurrió un error')
-            res.redirect("/comprar");
+            res.redirect("/carrito/comprar");
         } else {
             req.session.carrito = {};
             req.session.total = 0;

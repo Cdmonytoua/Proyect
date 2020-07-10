@@ -1,18 +1,32 @@
-<!--Galeria-->
+#imgt1,#imgt2{
+	width: 400px;
+	height: 200px;
+	border-radius: 15px;
+}
+
+#imgt3,#imgt4,#imgt5,#imgt6{
+	width: 800px;
+	height: 400px;
+	border-radius: 15px;
+}
+
+.principal{
+	padding: 1rem;
+}
 
 img{
-    width: 680px;
+    width: 800px;
 }
 
 .slider{
-    width: 680px;
-    margin: 30px auto;
+    width: 800px;
+    margin: auto;
     overflow: hidden;
 }
 
 .slider ul{
     list-style: none;
-    width: 2720px;
+    width: 3250px;
     display: flex;
 
     animation: x 20s infinite alternate;
@@ -22,14 +36,14 @@ img{
     0%{margin-left: 0px;}
     20%{margin-left: 0px;}
 
-    25%{margin-left: -680px;}
-    45%{margin-left: -680px;}
+    25%{margin-left: -830px;}
+    45%{margin-left: -830px;}
 
-    50%{margin-left: -1360px;}
-    70%{margin-left: -1360px;}
+    50%{margin-left: -1640px;}
+    70%{margin-left: -1640px;}
 
-    75%{margin-left: -2040px;}
-    100%{margin-left: -2040px;}
+    75%{margin-left: -2470px;}
+    100%{margin-left: -2470px;}
 
     
 }
