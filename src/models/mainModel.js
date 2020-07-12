@@ -23,5 +23,10 @@ mainModel.librosBusqueda = async (substr, result) => {
     await pool.query('SELECT * FROM Libros WHERE Nombre LIKE ?', substr, (err, rows, field) => {
         return result(err, rows);
     });
-}
+};
+mainModel.remates = async(result) => {
+    await pool.query("SELECT * FROM Remates", (err, rows, field) => {
+        return result(err, rows);
+    });
+};
 module.exports = mainModel;

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/css/alertmsg.css">
     <link rel="stylesheet" href="/css/exito.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
     {{#if style}}
     <link rel="stylesheet" href="/css/{{style}}">
     {{/if}}
@@ -56,6 +58,8 @@
                 <a class="item" href="/categorias">Categorías</a>
                 <a class="item" href="/autores">Autores</a>
                 <a class="item" href="/editoriales">Editoriales</a>
+                <a class="item" href="/remates">Remates</a>
+                <a class="item" href="/tecnologia">Tecnología</a>
                 {{#if user}}
                 <a style="float: right" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"
                         style="cursor: pointer;"> Hola,
@@ -108,6 +112,7 @@
     </div>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     {{>select}}
     {{#if bootstrap}}
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -115,7 +120,26 @@
     <script type="text/javascript" src="//js.stripe.com/v2/"></script>
     <script type="text/javascript" src="/js/pago.js"></script>
     <script>
-       
+        $(document).ready(function () {
+            $('#itemslider').carousel({ interval: 3000 });
+
+            $('.carousel-showmanymoveone .item').each(function () {
+                var itemToClone = $(this);
+
+                for (var i = 1; i < 6; i++) {
+                    itemToClone = itemToClone.next();
+
+                    if (!itemToClone.length) {
+                        itemToClone = $(this).siblings(':first');
+                    }
+
+                    itemToClone.children(':first-child').clone()
+                        .addClass("cloneditem-" + (i))
+                        .appendTo($(this));
+                }
+            });
+        });
+
         function openForm() {
             document.getElementById("myForm").style.display = "block";
         }

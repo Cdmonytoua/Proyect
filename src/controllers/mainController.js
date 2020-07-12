@@ -5,7 +5,7 @@ mainController.inicio = (req, res) => {
     if (!req.session.carrito) {
         req.session.carrito = {};
     }
-    res.render("inicio", { style: "inicio.css" });
+    res.render("inicio", { style: "inicio.css", bootstrap: true});
 };
 mainController.libros = async (req, res) => {
     const libros = await mainModel.libros();
@@ -72,5 +72,14 @@ mainController.buscar = (req, res) => {
     const { search } = req.body;
     const route = "/buscar/".concat(search);
     res.redirect(route);
+};
+mainController.remates = (req, res) => {
+    mainModel.remates((err, rows) => {
+        if(err){
+            throw err;
+        }else{
+            res.render("otros", { style: "otros.css", remates: rows});
+        }
+    });
 };
 module.exports = mainController;

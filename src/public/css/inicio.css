@@ -11,7 +11,7 @@
 }
 
 .principal{
-	padding: 1rem;
+	padding-top: 4rem;
 }
 
 img{
@@ -53,3 +53,220 @@ img{
 	align-items: center;
 	margin: auto;
 }
+/* new cards */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+.containernew{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.containernew .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.containernew .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.containernew .card img{
+    width: 330px;
+    height: 220px;
+}
+
+
+.containernew .card h4{
+    font-weight: 600;
+}
+
+.containernew .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.containernew .card a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #3498db;
+}
+#slider-text{
+    padding-top: 40px;
+    display: block;
+  }
+  #slider-text .col-md-6{
+    overflow: hidden;
+  }
+  
+  #slider-text h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin: 30px auto;
+    padding-left: 40px;
+  }
+  #slider-text h2::after{
+    border-top: 2px solid #c7c7c7;
+    content: "";
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    }
+  
+  #itemslider h4{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 10px auto 3px;
+  }
+  #itemslider h5{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 3px auto 2px;
+  }
+  #itemslider h6{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;;
+    font-size: 10px;
+    margin: 2px auto 5px;
+  }
+  .badge {
+    background: #b20c0c;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 31px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border: 2px solid #FFF;
+    box-shadow: 0 0 0 1px #b20c0c;
+    top: 5px;
+    right: 25%;
+  }
+  #slider-control img{
+    padding-top: 60%;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 992px){
+  #slider-control img {
+    padding-top: 70px;
+    margin: 0 auto;
+  }
+  }
+  
+  .carousel-showmanymoveone .carousel-control {
+    width: 4%;
+    background-image: none;
+  }
+  .carousel-showmanymoveone .carousel-control.left {
+    margin-left: 5px;
+  }
+  .carousel-showmanymoveone .carousel-control.right {
+    margin-right: 5px;
+  }
+  .carousel-showmanymoveone .cloneditem-1,
+  .carousel-showmanymoveone .cloneditem-2,
+  .carousel-showmanymoveone .cloneditem-3,
+  .carousel-showmanymoveone .cloneditem-4,
+  .carousel-showmanymoveone .cloneditem-5 {
+    display: none;
+  }
+  @media all and (min-width: 768px) {
+    .carousel-showmanymoveone .carousel-inner > .active.left,
+    .carousel-showmanymoveone .carousel-inner > .prev {
+      left: -50%;
+    }
+    .carousel-showmanymoveone .carousel-inner > .active.right,
+    .carousel-showmanymoveone .carousel-inner > .next {
+      left: 50%;
+    }
+    .carousel-showmanymoveone .carousel-inner > .left,
+    .carousel-showmanymoveone .carousel-inner > .prev.right,
+    .carousel-showmanymoveone .carousel-inner > .active {
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
+      display: block;
+    }
+  }
+  @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+    .carousel-showmanymoveone .carousel-inner > .item.active.right,
+    .carousel-showmanymoveone .carousel-inner > .item.next {
+      -webkit-transform: translate3d(50%, 0, 0);
+      transform: translate3d(50%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner > .item.active.left,
+    .carousel-showmanymoveone .carousel-inner > .item.prev {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner > .item.left,
+    .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+    .carousel-showmanymoveone .carousel-inner > .item.active {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      left: 0;
+    }
+  }
+  @media all and (min-width: 992px) {
+    .carousel-showmanymoveone .carousel-inner > .active.left,
+    .carousel-showmanymoveone .carousel-inner > .prev {
+      left: -16.666%;
+    }
+    .carousel-showmanymoveone .carousel-inner > .active.right,
+    .carousel-showmanymoveone .carousel-inner > .next {
+      left: 16.666%;
+    }
+    .carousel-showmanymoveone .carousel-inner > .left,
+    .carousel-showmanymoveone .carousel-inner > .prev.right,
+    .carousel-showmanymoveone .carousel-inner > .active {
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner .cloneditem-2,
+    .carousel-showmanymoveone .carousel-inner .cloneditem-3,
+    .carousel-showmanymoveone .carousel-inner .cloneditem-4,
+    .carousel-showmanymoveone .carousel-inner .cloneditem-5,
+    .carousel-showmanymoveone .carousel-inner .cloneditem-6  {
+      display: block;
+    }
+  }
+  @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+    .carousel-showmanymoveone .carousel-inner > .item.active.right,
+    .carousel-showmanymoveone .carousel-inner > .item.next {
+      -webkit-transform: translate3d(16.666%, 0, 0);
+      transform: translate3d(16.666%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner > .item.active.left,
+    .carousel-showmanymoveone .carousel-inner > .item.prev {
+      -webkit-transform: translate3d(-16.666%, 0, 0);
+      transform: translate3d(-16.666%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone .carousel-inner > .item.left,
+    .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+    .carousel-showmanymoveone .carousel-inner > .item.active {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      left: 0;
+    }
+  }

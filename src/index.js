@@ -5,7 +5,6 @@ path = require('path'),
 hbs = require('express-handlebars'),
 flash = require('connect-flash'),
 session = require('express-session'),
-cookieParser = require('cookie-parser'),
 mysqlsession = require('express-mysql-session'),
 passport = require('passport');
 
@@ -25,7 +24,6 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(cookieParser());
 app.use(session({
     secret: 'mysession',
     resave: false,

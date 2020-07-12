@@ -13,5 +13,6 @@ router.get("/editoriales", mainController.editoriales);
 router.get("/editoriales/:id", mainController.librosPorIDEditorial);
 router.post("/buscar", mainController.buscar);
 router.get("/buscar/:title", mainController.librosBusqueda);
+router.get("/remates", mainController.remates);
 module.exports = router;
 
