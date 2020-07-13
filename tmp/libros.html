@@ -10,80 +10,51 @@
 <body>
     <br>
     <header>
-        <h2>Detalle</h2><br>
+        <h2>Detalle del producto</h2><br>
     </header>
    
-    <hr size="1"> 
-    <br><br>
-    <table class="Tprincipal"> 
-        <tr>
-            <td rowspan="6">
-                    <ul>
-                        <li><img src="https://www.porrua.mx/images/productos/books/codbarl/l9786073185509.jpg" alt=" "></li>
-                    </ul>
-            </td>
-            <td>TITULO</td>
-        </tr>
-        <tr>
-            <td>CATEGORIA</td>
-        </tr>
-        <tr>
-            <td>AUTOR</td>
-        </tr>
-        <tr>
-            <td>EDITORIAL</td>
-        </tr>
-        <tr>
-            <td>AÑO DE PUBLICACION</td>
-        </tr>
-        <tr>
-            <td>PRECIO</td>
-        </tr>
-    </table>
-
-    <br><br><br>
-    <footer>
-        <div class="contenedor">
-            <p class="copy">Libreria L &copy; 2020</p>
-
-            <div class="sociales">
-                <a href="https://www.facebook.com"><img src="https://cdn.icon-icons.com/icons2/693/PNG/512/Facebook_Rounded_Solid_icon-icons.com_61562.png" alt="enlace-facebook" width="35pt" height="35pt"></a>
-                <a href="https://www.twitter.com"><img src="https://image.flaticon.com/icons/png/512/23/23681.png" alt="enlace-twitter" width="30pt" height="30pt"></a>
-                <a href="https://www.instagram.com"><img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt="enlace-instagram" width="30pt" height="30pt"></a>
-                <a href="https://www.youtube.com"><img src="https://image.flaticon.com/icons/png/512/48/48968.png" alt="enlace-youtube" width="35pt" height="35pt"></a>
-
-            </div>
+    <div class="containernew">
+       
+        <div class="card">
+            <img src="https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_1165_1_99808.jpg">
         </div>
-    </footer>
-    
+        
+        <div class="card">
+            <br>
+            <h4>Datos del producto</h4><br><br><br>
+            <p>Nombre: </p><br>
+            <p>Libreria</p><br><br>
+            <p>Precio: </p><br> 
+            <p>$200</p>
+        </div>
+        
+        <div class="card">  
+            <br>    
+            <img id="carrito" src="https://us.123rf.com/450wm/victor85/victor851711/victor85171100511/90820845-icono-de-carrito-de-compras-con-larga-sombra-estilo-de-dise%C3%B1o-plano-carro-de-compras-silueta-simple-ico.jpg?ver=6">
+            <br>
+            <br><button>Agregar al carrito</button>
+            <br><br>    <button>Comprar</button>
+        </div>
+        
+    </div>
+
 </body>
 </html>
 
 <style>
 
-li{
-    list-style: none;
-}
-
 h2{
     text-align: center;
 }
 
-.Tprincipal{
-    text-align: center;
-	align-items: center;
-	margin: auto;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
 body{
     font-family: helvetica;
-
 }
 
 .contenedor{
@@ -91,40 +62,45 @@ body{
     margin: auto;   
 }
 
-.copy{
-    font-size: 12pt;
-}
-
-footer .contenedor{
+.containernew{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: auto;
 }
 
-.sociales{
-    
+.containernew .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
     text-align: center;
-    width: 100%;
+    transition: all 0.25s;
 }
 
-.sociales img{
-    margin: 0px 5px;
+.containernew .card h4{
+    font-weight: 600;
 }
 
-@media (min-width:768px){
-    footer .contenedor{
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .sociales{
-        width: auto;
-    }
+.containernew .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
 }
 
-@media (min-width:1024px){
-    .contenedor{
-        width: 1000px;
-    }
+.containernew .card a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #3498db;
 }
+
+#carrito{
+    width: 200px;
+    border-radius: 60%;
+}
+
 </style>
