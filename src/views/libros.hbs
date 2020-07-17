@@ -2,10 +2,16 @@
     <div class="items">
         {{#each libros}}
         <div class="product">
+            {{#checklength Nombre 45}}
+            <h3 class="tooltip">{{#subStr Nombre}}{{/subStr}}...
+                <span class="tooltiptext tooltip-bottom">{{Nombre}}</span>
+            </h3>
+
+            {{else}}
             <h3> {{Nombre}} </h3>
+            {{/checklength}}
             <div>
-                <img src="https://www.elsotano.com/imagenes_grandes/9786077/978607747950.JPG"
-                    style="width:35%; height:35%;">
+                <img src="{{Imagen}}" style="width:200; height:240px;" alt="#">
             </div>
             <div class="price">
                 <span>${{Precio}}</span>
@@ -24,4 +30,17 @@
         </div>
         {{/each}}
     </div>
+    {{#if pages}}
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        {{#each pages}}
+        {{#ifEquals this ../pag}}
+        <a class="active" href="/libros/?page={{this}}">{{this}}</a>
+        {{else}}
+        <a href="/libros/?page={{this}}">{{this}}</a>
+        {{/ifEquals}}
+        {{/each}}
+        <a href="#">&raquo;</a>
+    </div>
+    {{/if}}
 </div>

@@ -5,11 +5,25 @@ mainController.inicio = (req, res) => {
     if (!req.session.carrito) {
         req.session.carrito = {};
     }
-    res.render("inicio", { style: "inicio.css", bootstrap: true});
+    mainModel.novedades((err, rows) => {
+        if (err) throw err;
+        else res.render("inicio", { style: "inicio.css", bootstrap: true, primero: rows[0], libros: rows.slice(1, 6) });
+    });
 };
 mainController.libros = async (req, res) => {
-    const libros = await mainModel.libros();
-    res.render("libros", { style: "libros.css", libros });
+    const limit = 21;
+    var page = req.query.page;
+    if(!page) page = 1;
+    const offset = (page - 1) * limit;
+    const row  = await mainModel.cantidadDeLIbros();
+    const { cantidad } = row[0];
+    const npages = Math.ceil(cantidad / limit);
+    const libros = await mainModel.libros(limit, offset);
+    var pages = [];
+    for (let i = 1; i <= npages; i++) {
+        pages.push(i);
+    }
+    res.render("libros", { style: "libros.css", libros, pages, pag: page });
 };
 mainController.categorias = async (req, res) => {
     const categorias = await adminModel.categorias();
@@ -75,11 +89,29 @@ mainController.buscar = (req, res) => {
 };
 mainController.remates = (req, res) => {
     mainModel.remates((err, rows) => {
-        if(err){
+        if (err) {
             throw err;
-        }else{
-            res.render("otros", { style: "otros.css", remates: rows});
+        } else {
+            res.render("remates", { style: "otros.css", remates: rows });
         }
+    });
+};
+mainController.tecnologia = (req, res) => {
+    mainModel.tecnologia((err, rows) => {
+        if (err) {
+            throw err;
+        } else {
+            res.render("tecnologia", { style: "otros.css", tecnologia: rows });
+        }
+    });
+};
+mainController.libro = (req, res, next) => {
+    const { id } = req.params;
+    mainModel.libro([id], (err, rows) => {
+        if (rows.length == 0) {
+            next();
+            return;
+        } else res.render("libro", { style: "libro.css", libro: rows[0] });
     });
 };
 module.exports = mainController;

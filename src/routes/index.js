@@ -14,5 +14,7 @@ router.get("/editoriales/:id", mainController.librosPorIDEditorial);
 router.post("/buscar", mainController.buscar);
 router.get("/buscar/:title", mainController.librosBusqueda);
 router.get("/remates", mainController.remates);
+router.get("/tecnologia", mainController.tecnologia);
+router.get("/libro/:id", mainController.libro);
 module.exports = router;
 

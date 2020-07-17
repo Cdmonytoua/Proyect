@@ -69,7 +69,6 @@ carritoController.comprar = (req, res) => {
             req.flash('exito', 'Compra realizada con éxito');
             res.redirect('/carrito');
         }
-
     });
 };
 module.exports = carritoController;

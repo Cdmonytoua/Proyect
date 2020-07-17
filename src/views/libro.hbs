@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="left-column">
+    <img class="active" src={{libro.Imagen}} alt="#"
+      style="width: 300px; height: 400px">
+  </div>
+  <!-- Right Column -->
+  <div class="right-column">
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Libro</span>
+      <h1>{{libro.Nombre}}</h1>
+      <p>(Aquí va la descripción de este libro) Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Beatae fugiat animi mollitia eveniet
+        dolorem hic aliquam provident quis, sequi alias.</p>
+    </div>
+    <!-- Product Configuration -->
+    <div class="product-configuration">
+      <!-- Product Pricing -->
+      <div class="product-price">
+        <span>${{libro.Precio}}</span>
+        <form action="/agregar_a_carrito" method="POST">
+          <input type="hidden" name="cantidad" value="1">
+          <input type="hidden" name="id" value={{libro.Id_Libro}}>
+          <input type="submit" class="cart-btn" value="Agregar al carrito">
+        </form>
+      </div>
+    </div>
+  </div>
