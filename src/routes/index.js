@@ -16,5 +16,8 @@ router.get("/buscar/:title", mainController.librosBusqueda);
 router.get("/remates", mainController.remates);
 router.get("/tecnologia", mainController.tecnologia);
 router.get("/libro/:id", mainController.libro);
+router.get("/contacto", mainController.contacto);
+router.get("/politicas", mainController.politica);
+router.get("/sucursales", mainController.sucursal);
 module.exports = router;
 

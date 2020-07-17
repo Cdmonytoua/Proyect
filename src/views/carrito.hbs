@@ -1,7 +1,6 @@
 {{#if carrito}}
 <br><br>
 <div class="container">
-    {{#if libros}}
     {{#checklength libros 0}}
     <div class="cart-top">Carrito</div>
     {{#each libros}}
@@ -10,18 +9,50 @@
             {{Nombre}}
         </span>
         <span>
-            {{#count ../carrito Id_Libro }} {{/count}}
+            {{#count ../carritoLibros Id_Libro }} {{/count}}
         </span>
         <span>
-            {{#subtotal ../carrito Id_Libro Precio}} {{/subtotal}}
+            {{#subtotal ../carritoLibros Id_Libro Precio}} {{/subtotal}}
         </span>
     </div>
     {{/each}}
+    {{/checklength}}
+    {{#checklength remates 0}}
+    {{#each remates}}
+    <div class="cart-item">
+        <span>
+            {{Nombre_Remate}}
+        </span>
+        <span>
+            {{#count ../carritoRemates Id_Remate }} {{/count}}
+        </span>
+        <span>
+            {{#subtotal ../carritoRemates Id_Remate Precio}} {{/subtotal}}
+        </span>
+    </div>
+    {{/each}}
+    {{/checklength}}
+    {{#checklength tecnologia 0}}
+    {{#each tecnologia}}
+    <div class="cart-item">
+        <span>
+            {{Nombre_Tec}}
+        </span>
+        <span>
+            {{#count ../carritoTecnologia Id_Tecnologia }} {{/count}}
+        </span>
+        <span>
+            {{#subtotal ../carritoTecnologia Id_Tecnologia Precio}} {{/subtotal}}
+        </span>
+    </div>
+    {{/each}}
+    {{/checklength}}
     <div class="cart-bottom"><a href="/carrito/limpiar" class="button">Limpiar</a><a href="/carrito/comprar"
             class="button">Comprar</a><b>Total: {{total}}</b></div>
-    {{/checklength}}
-    {{else}}
+</div>
+{{else}}
+<br><br>
+<div class="container">
     <div class="success">Carrito vacío, agregue productos.</div>
-    {{/if}}
 </div>
 {{/if}}

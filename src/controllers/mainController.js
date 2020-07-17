@@ -10,6 +10,15 @@ mainController.inicio = (req, res) => {
         else res.render("inicio", { style: "inicio.css", bootstrap: true, primero: rows[0], libros: rows.slice(1, 6) });
     });
 };
+mainController.sucursal = (req, res) => {
+    res.render("sucursal", {style: "sucursal.css"});
+};
+mainController.politica = (req, res) => {
+    res.render("politica", {style: "politicas.css"});
+};
+mainController.contacto = (req, res) => {
+    res.render("contacto", {style: "contacto.css"});
+};
 mainController.libros = async (req, res) => {
     const limit = 21;
     var page = req.query.page;

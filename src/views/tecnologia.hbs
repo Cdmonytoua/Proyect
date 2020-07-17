@@ -7,6 +7,10 @@
     <br>
     <span>Precio: {{Precio}}$</span> 
   </div>
-  <span class="add-to-cart">Agregar al carrito</span>
+  <form action="/carrito/agregarproducto" method="POST">
+    <input type="hidden" name="cantidad" value="1">
+    <input type="hidden" name="id" value={{Id_Tecnologia}}>
+    <input type="submit" value="Agregar a carrito">
+  </form>
 </div>
 {{/each}}

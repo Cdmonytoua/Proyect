@@ -8,20 +8,54 @@ carritoController.carrito = (req, res) => {
     if (!carrito) {
         carrito = req.session.carrito = {};
     }
-    var ids = Object.keys(carrito);
-    if (ids.length > 0) {
-        carritoModel.carrito(ids, (err, rows) => {
-            if (err) throw err;
-            libros = rows;
-            var total = 0;
+    var carritoLibros = carrito['carrito_libros'];
+    if(!carritoLibros){
+        carritoLibros = req.session.carrito['carrito_libros'] = {};   
+    }
+    var carritoRemates = carrito['carrito_remates'];
+    if(!carritoRemates){
+        carritoRemates = req.session.carrito['carrito_remates'] = {};   
+    }
+    var carritoTecnologia = carrito['carrito_tecnologia'];
+    if(!carritoTecnologia){
+        carritoTecnologia = req.session.carrito['carrito_tecnologia'] = {};   
+    }
+    var idsLibros = Object.keys(carritoLibros);
+    var idsRemates = Object.keys(carritoRemates);
+    var idsTecnologia = Object.keys(carritoTecnologia);
+    console.log(carrito);
+    if (idsLibros.length > 0 || idsRemates.length > 0 || idsTecnologia.length > 0) {
+        carritoModel.carritoLibros(idsLibros, (err, rows) => {
+            var libros = rows;
+            var subtotalLibros = 0;
+            if(!libros) libros = [];
             libros.forEach(libro => {
                 const { Id_Libro, Precio } = libro;
-                total += Math.round((carrito[Id_Libro] * Precio) * 100) / 100;
+                subtotalLibros += Math.round((carritoLibros[Id_Libro] * Precio) * 100) / 100;
             });
-            req.session.total = total;
-            res.render('carrito', { style: "carrito.css", libros, carrito, total });
+            carritoModel.carritoRemates(idsRemates, (err, rows) => {
+                var remates = rows;
+                var subtotalRemates = 0;
+                if(!remates) remates = [];
+                remates.forEach(remate => {
+                    const { Id_Remate, Precio } = remate;
+                    subtotalRemates += Math.round((carritoRemates[Id_Remate] * Precio) * 100) / 100;
+                });
+                carritoModel.carritoTecnologia(idsTecnologia, (err, rows) => {
+                    var tecnologia = rows;
+                    var subtotalTecnologia = 0;
+                    if(!tecnologia) tecnologia = [];
+                    tecnologia.forEach(tec => {
+                        const { Id_Tecnologia, Precio } = tec;
+                        subtotalTecnologia += Math.round((carritoTecnologia[Id_Tecnologia] * Precio) * 100) / 100;
+                    });
+                    var total = req.session.total = subtotalLibros + subtotalRemates + subtotalTecnologia;
+                    console.log(carritoTecnologia);
+                    res.render('carrito', { style: "carrito.css", libros, remates, tecnologia, carritoLibros, carritoRemates, carritoTecnologia, total, carrito });
+                });
+            });
         });
-    } else res.render("carrito", { style: "carrito.css", carrito });
+    } else res.render("carrito", { style: "carrito.css"});
 };
 carritoController.limpiar = (req, res) => {
     req.session.carrito = {};
@@ -29,15 +63,85 @@ carritoController.limpiar = (req, res) => {
     req.flash('exito', 'Carrito vaciado');
     res.redirect('/carrito');
 };
-carritoController.agregarACarrito = (req, res) => {
+carritoController.agregarLibroACarrito = (req, res) => {
     var carrito = req.session.carrito;
     if (!carrito) {
         carrito = req.session.carrito = {};
     }
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
+    }
+    var carritoLibros = carrito['carrito_libros'];
+    if(!carritoLibros){
+        carritoLibros = req.session.carrito['carrito_libros'] = {};   
+    }
+    var carritoRemates = carrito['carrito_remates'];
+    if(!carritoRemates){
+        carritoRemates = req.session.carrito['carrito_remates'] = {};   
+    }
+    var carritoTecnologia = carrito['carrito_tecnologia'];
+    if(!carritoTecnologia){
+        carritoTecnologia = req.session.carrito['carrito_tecnologia'] = {};   
+    }
     var id = req.body.id;
     var cantidad = parseInt(req.body.cantidad, 10);
-    carrito[id] = (carrito[id] || 0) + cantidad;
+    carrito['carrito_libros'][id] = (carrito['carrito_libros'][id] || 0) + cantidad;
     req.flash('exito', 'Libro agregado correctamente');
+    res.redirect('back');
+};
+carritoController.agregarRemateACarrito = (req, res) => {
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
+    }
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
+    }
+    var carritoLibros = carrito['carrito_libros'];
+    if(!carritoLibros){
+        carritoLibros = req.session.carrito['carrito_libros'] = {};   
+    }
+    var carritoRemates = carrito['carrito_remates'];
+    if(!carritoRemates){
+        carritoRemates = req.session.carrito['carrito_remates'] = {};   
+    }
+    var carritoTecnologia = carrito['carrito_tecnologia'];
+    if(!carritoTecnologia){
+        carritoTecnologia = req.session.carrito['carrito_tecnologia'] = {};   
+    }
+    var id = req.body.id;
+    var cantidad = parseInt(req.body.cantidad, 10);
+    carrito['carrito_remates'][id] = (carrito['carrito_remates'][id] || 0) + cantidad;
+    req.flash('exito', 'Remate agregado correctamente');
+    res.redirect('back');
+};
+carritoController.agregarProductoACarrito = (req, res) => {
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
+    }
+    var carrito = req.session.carrito;
+    if (!carrito) {
+        carrito = req.session.carrito = {};
+    }
+    var carritoLibros = carrito['carrito_libros'];
+    if(!carritoLibros){
+        carritoLibros = req.session.carrito['carrito_libros'] = {};   
+    }
+    var carritoRemates = carrito['carrito_remates'];
+    if(!carritoRemates){
+        carritoRemates = req.session.carrito['carrito_remates'] = {};   
+    }
+    var carritoTecnologia = carrito['carrito_tecnologia'];
+    if(!carritoTecnologia){
+        carritoTecnologia = req.session.carrito['carrito_tecnologia'] = {};   
+    }
+    var id = req.body.id;
+    var cantidad = parseInt(req.body.cantidad, 10);
+    carrito['carrito_tecnologia'][id] = (carrito['carrito_tecnologia'][id] || 0) + cantidad;
+    req.flash('exito', 'Producto agregado correctamente');
     res.redirect('back');
 };
 carritoController.compras = (req, res) => {

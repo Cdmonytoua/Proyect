@@ -5,8 +5,12 @@
     style="background: url({{Imagen}});background-size: cover;">
     <span>{{Nombre_Remate}}</span>
     <br>
-    <span>Precio: {{Precio}}$</span> 
+    <span>Precio: {{Precio}}$</span>
   </div>
-  <span class="add-to-cart">Agregar al carrito</span>
+  <form action="/carrito/agregarremate" method="POST">
+    <input type="hidden" name="cantidad" value="1">
+    <input type="hidden" name="id" value={{Id_Remate}}>
+    <input type="submit" value="Agregar a carrito">
+  </form>
 </div>
 {{/each}}
