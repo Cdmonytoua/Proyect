@@ -18,7 +18,7 @@
       <!-- Product Pricing -->
       <div class="product-price">
         <span>${{libro.Precio}}</span>
-        <form action="/agregar_a_carrito" method="POST">
+        <form action="/carrito/agregarlibro" method="POST">
           <input type="hidden" name="cantidad" value="1">
           <input type="hidden" name="id" value={{libro.Id_Libro}}>
           <input type="submit" class="cart-btn" value="Agregar al carrito">
