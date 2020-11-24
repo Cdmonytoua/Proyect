@@ -2,7 +2,7 @@ module.exports = {
     database: {
         host: 'localhost',
         user: 'root',
-        database: 'Libreria',
+        database: 'libreria',
         multipleStatements: true
     }
 }
