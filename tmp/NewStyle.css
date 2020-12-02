@@ -1,0 +1,29 @@
+    /* Para un comportamiento responsive */
+    .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    }
+        
+    #imgx{
+        width: 800px;
+        height: 400px;
+        align-content: center;
+        border-radius: 15px;
+    }
+        
+    #imgt1,#imgt2{
+        width: 400px;
+        height: 200px;
+        border-radius: 15px;
+    }
+
+    .principal{
+        padding-top: 4rem;
+    }
+
+    .Tprincipal{
+        text-align: center;
+        align-items: center;
+        margin: auto;
+    }
+
