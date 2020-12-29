@@ -16,7 +16,60 @@
     </head>
     
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Image and text -->
+                <nav class="navbar navbar-light bg-light">
+                  <a class="navbar-brand" href="#">
+                    <img src=https://media-exp1.licdn.com/dms/image/C4E0BAQGMmI_Rdtr2vQ/company-logo_200_200/0?e=2159024400&v=beta&t=Pb3pWJMei6siArpfya0Ote_7kggwtxm92DAfjw-Y2u0 width="30" height="30" class="d-inline-block align-top" alt="">
+                    Libreria
+                  </a>
+                </nav>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Libros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Categorias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Autores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Editoriales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Remates</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tecnologia</a>
+                            </li>
+                        </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    <!-- Just an image carrito-->
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <img src=https://www.flaticon.es/svg/static/icons/svg/34/34627.svg width="30" height="30" alt="">
+                        </a>
+                    </nav>
+                    <!-- Just an image login -->
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <img src=https://p1.hiclipart.com/preview/169/1023/715/login-logo-user-users-group-customer-education-button-typeface-credential-png-clipart.jpg width="30" height="30" alt="">
+                        </a>
+                    </nav>
+                    </div>
+        </nav>
         <div class="container mt-3">
 
             <h2>Libreria "L"</h2>
@@ -66,6 +119,7 @@
 
         </div>
         <div>fghvbjknmxryctuviybunimok</div>
+       
         <!-- Footer -->
         <div id="social">
             <div class="container" style="padding: 80px 0;" align="center">
@@ -110,3 +164,25 @@
         </footer>
     </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('#itemslider').carousel({ interval: 3000 });
+
+        $('.carousel-showmanymoveone .item').each(function () {
+            var itemToClone = $(this);
+
+            for (var i = 1; i < 6; i++) {
+                itemToClone = itemToClone.next();
+
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+
+                itemToClone.children(':first-child').clone()
+                    .addClass("cloneditem-" + (i))
+                    .appendTo($(this));
+            }
+        });
+    });
+</script>
