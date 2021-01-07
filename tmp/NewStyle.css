@@ -54,3 +54,17 @@ a:active{
 .sinvineta{
     list-style: none;
 }
+
+#ConImg{
+    width: 300px;
+    height: 300px;
+}
+
+#ConCenter{
+    text-align: center;
+}
+
+#ConTex{
+    color: black;
+    align-content: center;
+}
