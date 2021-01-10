@@ -4,23 +4,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-	<link rel="stylesheet" href="form.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="form.css">
 	<title>Categorias</title>
 </head>
 <body>
-
-	<div class="container">
-		<div class="form__top">
-			<h2>Agregar <span>Categorias</span></h2>
-		</div>		
-		<form class="form__reg" action="">
-            <input class="input" id="nomc" type="text" name="Nombre" placeholder="Nombre" required autofocus>   
-            <div class="btn__form">
-            	<input class="btn__submit" type="submit" value="GUARDAR">
-            	<input class="btn__reset" type="reset" value="LIMPIAR">	
-            </div>
-		</form>
-	</div>
 	
+        <div class="container" style="width: 50%;">
+          <h2>Agregar <span>Categoria</span></h2>
+          <form action="/action_page.php">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input class="form-control" id="noma" type="text" name="Nombre" placeholder="Nombre" required autofocus><br>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success" style="width: 100px;" >Submit</button>
+                <button type="reset" class="btn btn-danger" style="width: 100px;" >Reset</button>
+            </div>
+          </form>
+        </div>
 </body>
 </html>
