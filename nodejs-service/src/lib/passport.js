@@ -9,7 +9,7 @@ passport.use('local.iniciar', new strategy({
     usernameField: 'username',
     passwordField: 'password',
     passReqToCallback: true
-}, async (req, done) => {
+}, async (req, Username, Password, done) => {
     const { username, password } = req.body;
     const results = await pool.query('SELECT * FROM clientes WHERE Username = ?', [username]);
     if (results.length > 0) {
@@ -51,11 +51,44 @@ passport.use('local.registrar', new strategy({
 passport.use(new GitHubStrategy({
     clientID: config.githubAuth.clientID,
     clientSecret: config.githubAuth.clientSecret,
-    callbackURL: config.githubAuth.callbackURL
+    callbackURL: config.githubAuth.callbackURL,
+    scope: ['user:email']
 },
-    function (accessToken, refreshToken, profile, done) {
-        console.log(profile);
-       
+    async (accessToken, refreshToken, profile, done) => {
+        await pool.query("SELECT * FROM clientes WHERE Correo = ?", [profile.emails[0].value], async (err, user) => {
+            if (err) {
+                return done(err);
+            }
+            else if (user.length == 0) {
+                var Nombre = profile.displayName;
+                var ApellidoP = '';
+                var ApellidoM = '';
+                var Correo = profile.emails[0].value;
+                var Username = profile.username == null ? "" : profile.username;
+                var Direccion = "";
+                var Password = "";
+                var CodigoPostal = 0;
+                var Rol = "usuario";
+                let newuser = {
+                    Username,
+                    Nombre,
+                    ApellidoP,
+                    ApellidoM,
+                    Correo,
+                    Password,
+                    Direccion,
+                    CodigoPostal,
+                    Rol,
+                };
+                const result = await pool.query("INSERT INTO clientes SET ?", [newuser]);
+                newuser.id = result.insertId;
+                done(null, newuser);
+            }
+            else {
+                done(null, user[0]);
+            }
+
+        });
     }
 ));
 passport.use(new FacebookStrategy({
