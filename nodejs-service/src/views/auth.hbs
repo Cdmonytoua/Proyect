@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Inicia sesión</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript'
+        src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'></script>
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+    {{>error}}
+    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                        <div class="row"> <img
+                                src="https://media-exp1.licdn.com/dms/image/C4E0BAQGMmI_Rdtr2vQ/company-logo_200_200/0?e=2159024400&v=beta&t=Pb3pWJMei6siArpfya0Ote_7kggwtxm92DAfjw-Y2u0"
+                                class="logo"> </div>
+                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img
+                                src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card2 card border-0 px-4 py-5">
+                        <div class="row mb-4 px-3">
+                            <h6 class="mb-0 mr-4 mt-2">Inicia sesión con</h6>
+                            <a href="/login/facebook">
+                                <div class="facebook text-center mr-3">
+                                    <div class="fa fa-facebook"></div>
+                                </div>
+                            </a>
+                            <a href="/login/github">
+                                <div class="github text-center mr-3">
+                                    <div class="fa fa-github"></div>
+                                </div>
+                            </a>
+                            <div class="linkedin text-center mr-3">
+                                <div class="fa fa-linkedin"></div>
+                            </div>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="line"></div> <small class="or text-center">O</small>
+                            <div class="line"></div>
+                        </div>
+                        <form action="/login" method="POST">
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Nombre de usuario</h6>
+                                </label> <input class="mb-4" type="text" name="username"
+                                    placeholder="Ingresa tu nombre de usuario" required> </div>
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Contraseña</h6>
+                                </label> <input type="password" name="password" placeholder="Ingresa una contraseña"
+                                    required> </div>
+                            <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Inicia
+                                    sesión</button> </div>
+                            <div class="row mb-4 px-3"> <small class="font-weight-bold">¿No tienes una cuenta? <a
+                                        class="text-danger" href="/registrar">Registrar</a></small> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-blue py-4">
+                <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All rights
+                        reserved.</small>
+                    <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span
+                            class="fa fa-github mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

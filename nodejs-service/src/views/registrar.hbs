@@ -1,0 +1,84 @@
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Regístrate</div>
+                    <div class="card-body">
+                        <form name="my-form" action="/registrar" method="POST">
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Nombre de
+                                    usuario:</label>
+                                <div class="col-md-6">
+                                    <input pattern="\S+" title="El nombre de usuario no puede contener espacios"
+                                        type="text" class="form-control" name="Username" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Contraseña:</label>
+                                <div class="col-md-6">
+                                    <input name="Password" type="password" class="form-control" name="Password"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Nombre:</label>
+                                <div class="col-md-6">
+                                    <input pattern="\D+" title="Este campo no puede contener números" type="text"
+                                        class="form-control" name="Nombre" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Apellido paterno:</label>
+                                <div class="col-md-6">
+                                    <input pattern="\D+" title="Este campo no puede contener números" name="ApellidoP"
+                                        type="text" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Apellido materno:</label>
+                                <div class="col-md-6">
+                                    <input pattern="\D+" title="Este campo no puede contener números" name="ApellidoM"
+                                        type="text" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Correo electrónico:
+                                </label>
+                                <div class="col-md-6">
+                                    <input name="Correo" type="email" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Dirección:
+                                </label>
+                                <div class="col-md-6">
+                                    <input name="Direccion" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Código postal:
+                                </label>
+                                <div class="col-md-6">
+                                    <input name="CodigoPostal" type="number" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Registrarse
+                                </button>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
