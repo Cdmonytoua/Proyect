@@ -10,7 +10,7 @@ docker inspect test-mysql-service | grep IPAddress
 docker build -t nodejs_service . //en la carpeta nodejs-service
 
  docker run  -d \
---publish 4000:4000 
+--publish 4000:4000 \
 -e MYSQL_USER='root' \
 -e MYSQL_PASSWORD='password' \
 -e MYSQL_DATABASE='libreria' \
