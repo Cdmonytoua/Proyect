@@ -18,6 +18,24 @@ adminModel.insertarLibro = async (libro, result) => {
         }
     });
 };
+adminModel.insertarRemate = async (remate, result) => {
+    await pool.query("INSERT INTO remates SET ?", remate, (err, rows, field) => {
+        if (err) {
+            return result(err, null);
+        } else {
+            return result(null, err);
+        }
+    });
+};
+adminModel.insertarTec = async (tec, result) => {
+    await pool.query("INSERT INTO tecnologia SET ?", tec, (err, rows, field) => {
+        if (err) {
+            return result(err, null);
+        } else {
+            return result(null, err);
+        }
+    });
+};
 adminModel.insertarCategoria = async (categoria, result) => {
     await pool.query("INSERT INTO categorias SET ?", categoria, (err, rows, field) => {
         if (err) {
@@ -60,4 +78,21 @@ adminModel.eliminarAutor = async (id, result) => {
         return result(err, rows);
     });
 };
+adminModel.actualizarCategoria = async (nombre, id, result) => {
+    await pool.query("UPDATE categorias SET Nombre = ? WHERE Id_Categoria = ?", [nombre, id], (err, rows, field) => {
+        return result(err, rows);
+    });
+};
+adminModel.actualizarEditorial = async (nombre, id, result) => {
+    await pool.query("UPDATE editoriales SET Nombre = ? WHERE Id_Editorial = ?", [nombre, id], (err, rows, field) => {
+        return result(err, rows);
+    });
+};
+adminModel.actualizarAutor = async (nombre, id, result) => {
+    await pool.query("UPDATE autores SET Nombre = ? WHERE Id_Autor = ?", [nombre, id], (err, rows, field) => {
+        return result(err, rows);
+    });
+};
+
+
 module.exports = adminModel;

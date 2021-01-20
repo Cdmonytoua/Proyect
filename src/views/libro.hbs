@@ -1,28 +1,58 @@
 <div class="container">
-  <div class="left-column">
-    <img class="active" src={{libro.Imagen}} alt="#"
-      style="width: 300px; height: 400px">
-  </div>
-  <!-- Right Column -->
-  <div class="right-column">
-    <!-- Product Description -->
-    <div class="product-description">
-      <span>Libro</span>
-      <h1>{{libro.Nombre}}</h1>
-      <p>(Aquí va la descripción de este libro) Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Beatae fugiat animi mollitia eveniet
-        dolorem hic aliquam provident quis, sequi alias.</p>
+  <br>
+  <hr>
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-5 border-right">
+        <article class="gallery-wrap">
+          <div class="img-big-wrap">
+            <div> <img class="mx-auto d-block" src={{libro.Imagen}}></div>
+          </div>
+        </article>
+      </aside>
+      <aside class="col-sm-7">
+        <article class="card-body p-5">
+          <h3 class="title mb-3">{{libro.Nombre}}</h3>
+          <p class="price-detail-wrap">
+            <span class="price h3 text-warning">
+              <span class="currency">MX $</span><span class="num">{{libro.Precio}}</span>
+            </span>
+          </p>
+          <dl class="item-property">
+            <dt>Descripción</dt>
+            <dd>
+              <p>Aquí va la descripción del libro. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio rem,
+                ratione cumque nobis quod est! Molestiae repellendus, tenetur sit saepe tempore expedita, voluptatibus
+                unde officiis ullam, dolorem voluptate vitae officia maxime sapiente. Doloremque quibusdam doloribus a.
+                Aut quae itaque sunt.</p>
+            </dd>
+          </dl>
+          <hr>
+          <form method="POST" action="" id="form">
+            <input type="hidden" name="id" value={{libro.Id_Libro}}>
+            <div class="row">
+              <div class="col-sm-5">
+                <dl class="param param-inline">
+                  <dt>Cantidad: </dt>
+                  <dd>
+                    <select class="form-control form-control-sm" style="width:70px;" name="cantidad">
+                      <option> 1 </option>
+                      <option> 2 </option>
+                      <option> 3 </option>
+                      <option> 4 </option>
+                      <option> 5 </option>
+                    </select>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <hr>
+            <button formaction="/carrito/agregarlibro" class="btn btn-lg btn-outline-primary text-uppercase">
+              <i class="fa fa-shopping-cart"></i> Agregar
+              al carrito</button>
+          </form>
+        </article>
+      </aside>
     </div>
-    <!-- Product Configuration -->
-    <div class="product-configuration">
-      <!-- Product Pricing -->
-      <div class="product-price">
-        <span>${{libro.Precio}}</span>
-        <form action="/carrito/agregarlibro" method="POST">
-          <input type="hidden" name="cantidad" value="1">
-          <input type="hidden" name="id" value={{libro.Id_Libro}}>
-          <input type="submit" class="cart-btn" value="Agregar al carrito">
-        </form>
-      </div>
-    </div>
   </div>
+</div>

@@ -1,46 +1,42 @@
 <div class="container">
-    <div class="items">
+    <hr>
+    <div class="row">
+        <!-- Product  -->
         {{#each libros}}
-        <div class="product">
-            {{#checklength Nombre 45}}
-            <h3 class="tooltip">{{#subStr Nombre}}{{/subStr}}...
-                <span class="tooltiptext tooltip-bottom">{{Nombre}}</span>
-            </h3>
-
+        <div class="col-md-3 product-grid">
+            <div class="image">
+                <a href="/libro/{{Id_Libro}}">
+                    <img src={{Imagen}} class="w-100 h-50">
+                    <div class="overlay">
+                        <div class="detail">Ver detalles</div>
+                    </div>
+                </a>
+            </div>
+            <h5 class="text-center">{{Nombre}}</h5>
+            <h5 class="text-center">Precio: ${{Precio}}</h5>
+            <form method="POST" action="/carrito/agregarlibro">
+                <input type="hidden" name="cantidad" value="1">
+                <input type="hidden" name="id" value={{Id_Libro}}>
+                <button class="btn buy">AGREGAR AL CARRITO</a>
+            </form>
+        </div>
+        {{/each}}
+    </div>
+    <nav aria-label="..." style="margin-top: 2%;">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="{{curr_page}}/?page={{prev}}" tabindex="-1">Anterior</a>
+            </li>
+            {{#each pages}}
+            {{#ifEquals this ../pag}}
+            <li class="page-item active"><a class="page-link" href="{{../curr_page}}/?page={{this}}">{{this}}</a></li>
             {{else}}
-            <h3> {{Nombre}} </h3>
-            {{/checklength}}
-            <div>
-                <img src="{{Imagen}}" style="width:200; height:240px;" alt="#">
-            </div>
-            <div class="price">
-                <span>${{Precio}}</span>
-                <div class="form-items">
-                    <form id="carritoform" method="POST" action="/carrito/agregarlibro">
-                        <input type="text" name="cantidad" value="1">
-                        <input type="hidden" name="id" value={{Id_Libro}}>
-                        <input type="submit" class="item-select" value="Agregar al carrito">
-                    </form>
-                </div>
-            </div>
-        </div>
-        {{else}}
-        <div class="error">
-            No se encontraron coincidencias. Intente de nuevo.
-        </div>
-        {{/each}}
-    </div>
-    {{#if pages}}
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        {{#each pages}}
-        {{#ifEquals this ../pag}}
-        <a class="active" href="/libros/?page={{this}}">{{this}}</a>
-        {{else}}
-        <a href="/libros/?page={{this}}">{{this}}</a>
-        {{/ifEquals}}
-        {{/each}}
-        <a href="#">&raquo;</a>
-    </div>
-    {{/if}}
+            <li class="page-item"><a class="page-link" href="{{../curr_page}}/?page={{this}}">{{this}}</a></li>
+            {{/ifEquals}}
+            {{/each}}
+            <li class="page-item">
+                <a class="page-link" href="{{curr_page}}/?page={{next}}">Siguiente</a>
+            </li>
+        </ul>
+    </nav>
 </div>

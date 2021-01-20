@@ -1,64 +1,248 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2><b>Categorías</b></h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each categorias}}
+                    <tr data-id="{{Id_Categoria}}">
+                        <td>{{Id_Categoria}}</td>
+                        <td>{{Nombre}}</td>
+                        <td>
+                            <a href="#editCategoria" class="edit categoria" data-toggle="modal"><i
+                                    class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#eliminarCategoria" class="delete categoria" data-toggle="modal"><i class="material-icons"
+                                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablas</title>
-    <link rel="stylesheet" href="/css/tabla.css">
-</head>
-
-<body>
-    <br>
-    <div id="container">
-        <table>
-            <tr class="thead">
-                <td colspan="4">Categorías</td>
-            </tr>
-            <tr class="thead2">
-                <td colspan="1">ID</td>
-                <td colspan="1">Categoría</td>
-            </tr>
-            {{#each categorias}}
-            <tr>
-                <td>{{Id_Categoria}}</td>
-                <td>{{Nombre}}</td>
-            </tr>
-            {{/each}}
-            <tr class="spacer">
-                <td colspan="4">&nbsp;</td>
-            </tr>
-            <tr class="thead">
-                <td colspan="4">Editoriales</td>
-            </tr>
-            <tr class="thead2">
-                <td colspan="1">ID</td>
-                <td colspan="1">Editorial</td>
-            </tr>
-            {{#each editoriales}}
-            <tr>
-                <td>{{Id_Editorial}}</td>
-                <td>{{Nombre}}</td>
-            </tr>
-            {{/each}}
-            <tr class="spacer">
-                <td colspan="4">&nbsp;</td>
-            </tr>
-            <tr class="thead">
-                <td colspan="4">Autores</td>
-            </tr>
-            <tr class="thead2">
-                <td colspan="1">ID</td>
-                <td colspan="1">Autor</td>
-            </tr>
-            {{#each autores}}
-            <tr>
-                <td>{{Id_Autor}}</td>
-                <td>{{Nombre}}</td>
-            </tr>
-            {{/each}}
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</body>
+</div>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2><b>Editoriales</b></h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each editoriales}}
+                    <tr data-id="{{Id_Editorial}}">
+                        <td>{{Id_Editorial}}</td>
+                        <td>{{Nombre}}</td>
+                        <td>
+                            <a id="editorial" href="#editEditorial" class="edit editorial" data-toggle="modal"><i
+                                    class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#eliminarEditorial" class="delete editorial" data-toggle="modal"><i class="material-icons"
+                                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
 
-</html>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2><b>Autores</b></h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each autores}}
+                    <tr data-id="{{Id_Autor}}">
+                        <td>{{Id_Autor}}</td>
+                        <td>{{Nombre}}</td>
+                        <td>
+                            <a href="#editAutor" class="edit autor" data-toggle="modal"><i class="material-icons"
+                                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#eliminarAutor" class="delete autor" data-toggle="modal"><i class="material-icons"
+                                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editCategoria" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/actualizar_categoria" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar categoría</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="Nombre" class="form-control" required>
+                        <input type="hidden" name="id" value="">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-info" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="editEditorial" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/actualizar_editorial" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar editorial</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input name="Nombre" type="text" class="form-control" required>
+                        <input type="hidden" name="id" value="">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-info" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="editAutor" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/actualizar_autor" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar autor</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input name="Nombre" type="text" class="form-control" required>
+                        <input type="hidden" name="id" value="">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-info" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="eliminarCategoria" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/eliminar_categoria" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar categoría</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que quieres eliminar este registro?</p>
+                    <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" value="">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="eliminarEditorial" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/eliminar_editorial" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar editorial</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que quieres eliminar este registro?</p>
+                    <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                    <input type="hidden" name="id" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="eliminarAutor" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/admin/eliminar_autor" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar autor</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que quieres eliminar este registro?</p>
+                    <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                    <input type="hidden" name="id" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

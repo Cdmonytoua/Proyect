@@ -1,5 +1,7 @@
 var mainModel = require('../models/mainModel');
 var adminModel = require('../models/adminModel');
+var helper = require('../lib/helpers');
+const helpers = require('../lib/helpers');
 var mainController = function () { }
 mainController.inicio = (req, res) => {
     if (!req.session.carrito) {
@@ -7,32 +9,29 @@ mainController.inicio = (req, res) => {
     }
     mainModel.novedades((err, rows) => {
         if (err) throw err;
-        else res.render("inicio", { style: "inicio.css", bootstrap: true, primero: rows[0], libros: rows.slice(1, 6) });
+        else {
+            var size = 4;
+            var books = [];
+            for (var i = 0; i < rows.length; i += size) {
+                books.push(rows.slice(i, i + size));
+            }
+            res.render("inicio", { style: "inicio.css", libros: books });
+        }
     });
 };
 mainController.sucursal = (req, res) => {
-    res.render("sucursal", {style: "sucursal.css"});
+    res.render("sucursal", { style: "sucursal.css" });
 };
 mainController.politica = (req, res) => {
-    res.render("politica", {style: "politicas.css"});
+    res.render("politica", { style: "politicas.css" });
 };
 mainController.contacto = (req, res) => {
-    res.render("contacto", {style: "contacto.css"});
+    res.render("contacto", { style: "contacto.css" });
 };
 mainController.libros = async (req, res) => {
-    const limit = 21;
-    var page = req.query.page;
-    if(!page) page = 1;
-    const offset = (page - 1) * limit;
-    const row  = await mainModel.cantidadDeLIbros();
+    const row = await mainModel.cantidadDeLibros();
     const { cantidad } = row[0];
-    const npages = Math.ceil(cantidad / limit);
-    const libros = await mainModel.libros(limit, offset);
-    var pages = [];
-    for (let i = 1; i <= npages; i++) {
-        pages.push(i);
-    }
-    res.render("libros", { style: "libros.css", libros, pages, pag: page });
+    helpers.pagination(null, req, res, cantidad, "/libros", mainModel.libros);
 };
 mainController.categorias = async (req, res) => {
     const categorias = await adminModel.categorias();
@@ -50,7 +49,7 @@ mainController.librosPorIDCategoria = (req, res) => {
     const { id } = req.params;
     mainModel.librosPorIDCategoria([id], (err, rows) => {
         if (rows.length > 0) {
-            res.render("libros", { style: "libros.css", libros: rows });
+            helpers.pagination(id, req, res, rows.length, "/categorias/" + id, mainModel.pagCategorias);
         } else {
             req.flash('error', 'No hay libros asociados');
             res.redirect('/categorias');
@@ -61,7 +60,7 @@ mainController.librosPorIDAutor = (req, res) => {
     const { id } = req.params;
     mainModel.librosPorIDAutor([id], (err, rows) => {
         if (rows.length > 0) {
-            res.render("libros", { style: "libros.css", libros: rows });
+            helpers.pagination(id, req, res, rows.length, "/autores/" + id, mainModel.pagAutores);
         } else {
             req.flash('error', 'No hay libros asociados');
             res.redirect('/autores');
@@ -72,10 +71,10 @@ mainController.librosPorIDEditorial = (req, res) => {
     const { id } = req.params;
     mainModel.librosPorIDEditorial([id], (err, rows) => {
         if (rows.length > 0) {
-            res.render("libros", { style: "libros.css", libros: rows });
+            helpers.pagination(id, req, res, rows.length, "/editoriales/" + id, mainModel.pagEditorial);
         } else {
             req.flash('error', 'No hay libros asociados');
-            res.redirect('/editorial');
+            res.redirect('/editoriales');
         }
     });
 };
@@ -88,7 +87,8 @@ mainController.librosBusqueda = (req, res) => {
             libros = [];
         }
         else libros = rows;
-        res.render("libros", { style: "libros.css", libros });
+        helpers.pagination(substr, req, res, rows.length, "/buscar/" + title, mainModel.pagBusqueda);
+
     });
 };
 mainController.buscar = (req, res) => {
@@ -101,7 +101,7 @@ mainController.remates = (req, res) => {
         if (err) {
             throw err;
         } else {
-            res.render("remates", { style: "otros.css", remates: rows });
+            res.render("remates", { style: "libros.css", remates: rows });
         }
     });
 };
@@ -110,7 +110,7 @@ mainController.tecnologia = (req, res) => {
         if (err) {
             throw err;
         } else {
-            res.render("tecnologia", { style: "otros.css", tecnologia: rows });
+            res.render("tecnologia", { style: "libros.css", tecnologia: rows });
         }
     });
 };

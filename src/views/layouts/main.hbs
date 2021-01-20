@@ -2,151 +2,182 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Librería L</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>L Library</title>
-    {{#if bootstrap}}
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    {{/if}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/alertmsg.css">
-    <link rel="stylesheet" href="/css/exito.css">
-    <link rel="stylesheet" href="/css/paginacion.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
     {{#if style}}
     <link rel="stylesheet" href="/css/{{style}}">
     {{/if}}
 </head>
 
 <body>
-    <div id="page-container">
-        <div class="social-bar">
-            <a href="https://facebook.com" class="icono icono-facebook" target="_blank"></a>
-            <a href="https://twitter.com" class="icono icono-twitter" target="_blank"></a>
-            <a href="https://youtube.com" class="icono icono-youtube" target="_blank"></a>
-            <a href="https://instagram.com" class="icono icono-instagram" target="_blank"></a>
-        </div>
-        <div id="content-wrap">
-            {{#if user}}
-            <div class="form-popup" id="myForm">
-                <form class="form-container">
-                    <button type="button" class="btn" onclick="window.location='/micuenta'">Mi cuenta</button>
-                    <button type="button" class="btn" onclick="window.location='/salir'">Cerrar sessión</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
-                </form>
-            </div>
-            {{else}}
-            <div class="form-popup" id="myForm">
-                <form action="/login" class="form-container" method="POST">
-                    <h1>Inicia sesión</h1>
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Nombre de usuario" name="username" required>
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <button type="submit" class="btn">Iniciar sesión</button>
-                    <button type="button" class="btn" onclick="window.location='/registrar'">Registrarse</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
-                </form>
-            </div>
-            {{/if}}
-            <div class="topnav">
-                <a class="item" href="/">Inicio</a>
-                <a class="item" href="/libros">Libros</a>
-                <a class="item" href="/categorias">Categorías</a>
-                <a class="item" href="/autores">Autores</a>
-                <a class="item" href="/editoriales">Editoriales</a>
-                <a class="item" href="/remates">Remates</a>
-                <a class="item" href="/tecnologia">Tecnología</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Image and text -->
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQGMmI_Rdtr2vQ/company-logo_200_200/0?e=2159024400&v=beta&t=Pb3pWJMei6siArpfya0Ote_7kggwtxm92DAfjw-Y2u0"
+                    width="30" height="30" class="d-inline-block align-top" alt="">
+                Librería L
+            </a>
+        </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 {{#if user}}
-                <a style="float: right" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"
-                        style="cursor: pointer;"> Hola,
-                        {{user.Username}}</i></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item waves-effect waves-light" href="/micuenta">Mi cuenta</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/salir">Cerrar sesión</a>
+                    </div>
+                </li>
                 {{else}}
-                <a style="float:right" onclick="openForm()"><i class="fa fa-user" aria-hidden="true"
-                        style="cursor: pointer;"></i></a>
+                <li class="nav-item dropdown">
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item waves-effect waves-light" href="/login">Inicia sesión</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/registrar">Regístrate</a>
+                    </div>
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
                 {{/if}}
-                <a href="/carrito" style="float:right"><i class="fa fa-shopping-cart" aria-hidden="true"
-                        style="cursor: pointer;"></i></a>
-                {{#ifEquals user.Username "admin" }}
-                <a style="float:right" href="/admin"><i class="fa fa-cogs"></i></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+                </li>
+                {{#ifEquals user.Rol "admin" }}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin"><i class="fas fa-user-cog"></i></a>
+                </li>
                 {{/ifEquals}}
-                <div class="search-container">
-                    <form action="/buscar" method="POST">
-                        <input type="text" placeholder="Buscar..." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/libros">Libros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categorias">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/autores">Autores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editoriales">Editoriales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/remates">Remates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tecnologia">Tecnologia</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/buscar" method="POST">
+                <input onkeyup="success()" class="form-control mr-sm-2" id="search" type="text" name="search"
+                    placeholder="Buscar..." aria-label="Search">
+                <button id="btnSearch" class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                    disabled>Buscar</button>
+            </form>
+
+        </div>
+    </nav>
+    {{>error}}
+    {{{ body }}}
+
+    <!-- Footer -->
+    <div id="social">
+        <div class="container" style="padding: 80px 0;" align="center">
+            <a class="linkss" href="https://es-la.facebook.com/">
+                <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+            <a class="linkss" href="https://twitter.com/?lang=es">
+                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+            <a class="linkss" href="https://www.instagram.com/">
+                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+            <a class="linkss" href="https://myaccount.google.com/">
+                <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+            <a class="linkss" href="https://www.linkedin.com/login/es">
+                <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+        </div>
+    </div>
+    <footer class="footercustom">
+        <h3 id="datos">Datos de contacto</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="sinvineta">
+                    <li><a class="linkss" href="Contectenos.html"> Contactos</a></li>
+                    <li><a class="linkss" href="Politicas.html"> Politicas de privacidad</a></li>
+                    <li><a class="linkss" href="Sucursales.html"> Sucursales</a></li>
+                </ul>
             </div>
-            {{>exito}}
-            {{>error}}
-            {{{ body }}}
-            <br><br><br><br><br>
-            <div class="footer">
-                <div id="header-footer">
-                    <ul class="nav-footer">
-
-                        <li><a href="#">Conócenos</a></li>
-
-                        <li><a href="/sucursales">Sucursales</a></li>
-
-                        <li><a href="#">Eventos Destacados</a></li>
-
-                        <li><a href="#">Servicios</a></li>
-
-                        <li><a href="/politicas">Políticas</a></li>
-
-                        <li><a href="/contacto">Contacto</a></li>
-                    </ul>
-                </div><br><br><br>
-
-                <div class="container-footer">---Todos los derechos reservados. Aviso de privacidad vigente---<br>© 2020
-                    Web
-                    diseñada por Cdmonytoua-Isaigm
-                </div>
+            <div class="col-md-6">
+                <ul class="sinvineta">
+                    <li>Telefonos: 2351081549 - 2281657654</li>
+                    <li>Email: LibreriaL@gmail.com</li>
+                    <li>Horario de atencion: 9am - 8pm</li>
+                </ul>
             </div>
         </div>
-
-    </div>
-
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    {{>select}}
-    {{#if bootstrap}}
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    {{/if}}
-    <script type="text/javascript" src="//js.stripe.com/v2/"></script>
-    <script type="text/javascript" src="/js/pago.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#itemslider').carousel({ interval: 3000 });
-
-            $('.carousel-showmanymoveone .item').each(function () {
-                var itemToClone = $(this);
-
-                for (var i = 1; i < 6; i++) {
-                    itemToClone = itemToClone.next();
-
-                    if (!itemToClone.length) {
-                        itemToClone = $(this).siblings(':first');
-                    }
-
-                    itemToClone.children(':first-child').clone()
-                        .addClass("cloneditem-" + (i))
-                        .appendTo($(this));
-                }
-            });
-        });
-
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-        }
-    </script>
+        <p style="color: #91BEC2; padding: 15px;">
+            &copy; 2020 Copyright: Libreria "L"
+        </p>
+    </footer>
 </body>
+<script type="text/javascript" src="//js.stripe.com/v2/"></script>
+<script type="text/javascript" src="/js/pago.js"></script>
+<script>
+    function success() {
+        if (document.getElementById('search').value === "") {
+            document.getElementById('btnSearch').disabled = true;
+        } else {
+            document.getElementById('btnSearch').disabled = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+        $('#itemslider').carousel({ interval: 3000 });
+        $('.carousel-showmanymoveone .item').each(function () {
+            var itemToClone = $(this);
+
+            for (var i = 1; i < 6; i++) {
+                itemToClone = itemToClone.next();
+
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+
+                itemToClone.children(':first-child').clone()
+                    .addClass("cloneditem-" + (i))
+                    .appendTo($(this));
+            }
+        });
+    });
+</script>
 
 </html>

@@ -1,76 +1,116 @@
-<div class="principal">
+<div class="container mt-3">
 
-  <table class="Tprincipal">
-    <tr>
-      <td rowspan="2">
-        <div class="slider">
-          <ul>
-            <li><img id="imgt5" src="https://image.freepik.com/vector-gratis/exterior-biblioteca_1308-16539.jpg" alt="">
-            </li>
-            <li><img id="imgt3"
-                src="https://blog.vicensvives.com/wp-content/uploads/2017/11/InicitarLecturaVicensVives.png" alt=" ">
-            </li>
-            <li><img id="imgt6" src="https://www.magisnet.com/wp-content/uploads/2020/05/Cuarentena-02.jpg" alt=""></li>
-            <li><img id="imgt4"
-                src="https://universoabiertoblog.files.wordpress.com/2020/05/384375ad-66ac-42b9-bb14-a871b839ca97.jpg?w=441&h=248"
-                alt=""></li>
-          </ul>
-        </div>
-      </td>
-      <td><img id="imgt1" src="https://images.milled.com/2019-06-10/TorShde5qVvS7xJQ/dz8bmKnqOvml.jpg"></td>
-    </tr>
-    <tr>
-      <td><img id="imgt2"
-          src="https://www.4webs.es/blog/wp-content/uploads/2017/06/ampliar-la-vida-del-carrito-de-compra-prestashop-1.7.jpg">
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="container">
-  <div class="row" id="slider-text">
-    <div class="col-md-9">
-      <h2>NOVEDADES</h2>
+  <h2>Librería L</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://porrua.mx/media/catalog/tmp/category/Biografia-e-historias-reales.jpg" id="imgx">
+      </div>
+      <div class="carousel-item">
+        <img src="https://porrua.mx/media/catalog/tmp/category/Consulta.jpg" id="imgx">
+      </div>
+      <div class="carousel-item">
+        <img src="https://porrua.mx/media/catalog/tmp/category/EstiloVidaDeporteOcio.jpg" id="imgx">
+      </div>
+      <div class="carousel-item">
+        <img src="https://porrua.mx/media/catalog/tmp/category/Ficcion.jpg" id="imgx">
+      </div>
+      <div class="carousel-item">
+        <img src="https://porrua.mx/media/catalog/tmp/category/InfantilesJuvenilesDid.jpg" id="imgx">
+      </div>
+      <div class="carousel-item">
+        <img src="https://porrua.mx/media/catalog/tmp/category/Literatura.jpg" id="imgx">
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Item slider-->
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+    <div class="col-md-12">
+      <h2>Libros <b>Recientes</b></h2>
+      <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#productCarousel" data-slide-to="1"></li>
+          <li data-target="#productCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
-          <div class="item active">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="/libro/{{primero.Id_Libro}}"><img
-                  src={{primero.Imagen}}
-                  style="width: 160px; height: 210px" class="center-block"></a>
-              <h4 class="text-center">{{primero.Nombre}}</h4>
-              <h5 class="text-center">${{primero.Precio}}</h5>
-            </div>
-          </div>
-
           {{#each libros}}
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="/libro/{{Id_Libro}}"><img
-                  src={{Imagen}}
-                  style="width: 160px; height: 210px" class="center-block"></a>
-              <h4 class="text-center">{{Nombre}}</h4>
-              <h5 class="text-center">${{Precio}}</h5>
+          {{#if (ifEquals @index 0)}}
+          <div class="carousel-item active">
+            <div class="row">
+              {{#each this}}
+              <div class="col-sm-3">
+                <div class="thumb-wrapper">
+                  <a href="/libro/{{Id_Libro}}">
+                    <div class="img-box">
+                      <img src={{Imagen}} class="img-fluid rounded" alt="">
+                    </div>
+                  </a>
+                  <div class="thumb-content">
+                    <h4>{{Nombre}}</h4>
+                    <p class="item-price"><span>${{Precio}}</span></p>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+
             </div>
           </div>
+          {{else}}
+          <div class="carousel-item">
+            <div class="row">
+              {{#each this}}
+              <div class="col-sm-3">
+                <div class="thumb-wrapper">
+                  <a href="/libro/{{Id_Libro}}">
+                    <div class="img-box">
+                      <img src={{Imagen}} class="img-fluid rounded" alt="">
+                    </div>
+                  </a>
+                  <div class="thumb-content">
+                    <h4>{{Nombre}}</h4>
+                    <p class="item-price"><span>${{Precio}}</span></p>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+          {{/if}}
           {{/each}}
         </div>
-
-        <div id="slider-control">
-          <a class="left carousel-control" href="#itemslider" data-slide="prev"><img
-              src="https://cdn0.iconfinder.com/data/icons/website-kit-2/512/icon_402-512.png" alt="Left"
-              class="img-responsive"></a>
-          <a class="right carousel-control" href="#itemslider" data-slide="next"><img
-              src="http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png" alt="Right"
-              class="img-responsive"></a>
-        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#productCarousel" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
       </div>
     </div>
   </div>

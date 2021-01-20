@@ -1,124 +1,66 @@
-a {
-	color: black
+body{
+	color: #434444;
+}
+.container{
+	margin-bottom: 5%;
+	margin-top: 2%;
+}
+hr{
+	width: 300px;
+	border: 3px solid #434444;
 }
 
-.container {
-	margin: auto;
-    max-width: 1200px;
+/* Product Grid */
+.product-grid{
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
-
-.items {
-	margin-top: 40px;
-	padding: 10px 0 0 10px;
-  overflow: auto;
-    
+.product-grid:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-.product {
-	margin: 0 10px 10px 0;
-	float: left;
-	width: calc(33.33% - 40px);
-	padding: 0 15px;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2)
-}
-
-.product h3 {
-	font-size: 1em
-}
-.product p {
-	min-height: 100px
-}
-
-.price {
-	padding: 15px;
-	margin: 0 -15px;
-	border-top: 1px solid #f2f2f2;
-	overflow: auto
-}
-
-.price span {
-	float: left;
-	font-weight: 700;
-	font-size: 1.3em;
-	color: #7baf04
-}
-
-.price .form-items {
-	float: right
-}
-
-.form-items input {
-	font-family: inherit;
-	border: 1px solid #ddd
-}
-
-.form-items input[type=text] {
-	width: 24px;
-	margin-right: 5px;
-	text-align: center;
-	padding: 2px 6px
-}
-
-.form-items input[type=button],
-.form-items input[type=submit] {
-	border-radius: 0;
-	background: #f2f2f2;
-	padding: 2px 6px
-}
-
-.error {
-	border: rgba(216, 55, 15, 0.863) 1px solid;
-	padding: 15px;
-	color: red;
-	margin: 15px 0
-}
-@media (max-width: 992px) {
-	.product {
-		width: calc(50% - 40px)
-	}
-}
-
-@media (max-width: 768px) {
-	.product {
-		width: calc(100% - 40px)
-	}
-}
-.product h3.tooltip {
-	font-size: 1em;
+.image{
 	position: relative;
-  display: inline-block;
 }
-.product h3.tooltip .tooltiptext {
-  visibility: hidden;
-  position: absolute;
-  width: 150px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
+.overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: rgba(67, 68, 68, 0.7);
+}
+.image:hover .overlay{
+	opacity: 1;
+}
+.detail{
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 }
 
-.product h3.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+.buy{
+	background-color: transparent;
+	color: #434444;
+	border-radius: 0;
+	border: 1px solid #434444;
+	width: 100%;
+	margin-top: 20px;
+	
 }
-.product h3.tooltip .tooltip-bottom {
-  top: 135%;
-  left: 50%;  
-  margin-left: -60px;
+.buy:hover{
+	background-color: #434444;
+	color: #ffffff;
 }
-
-.product h3.tooltip .tooltip-bottom::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #555 transparent;
+.text-center{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
